@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class PlayerController : MonoBehaviour
 {
     private GameObject currentOneWayPlayform;
-    [SerializeField] private BoxCollider2D playerCollider;
+    [SerializeField] private CapsuleCollider2D playerCollider;
     [SerializeField] private ArmController arm;
     private PlayerController opponent;
     private PlayerManager manager;

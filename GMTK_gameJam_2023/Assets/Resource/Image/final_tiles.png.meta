@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -4860,9 +4860,9 @@ TextureImporter:
       final_tiles_176: 575633370
       final_tiles_213: 2009280459
       final_tiles_45: -1278720897
-      final_tiles_47: 2022042695
-      final_tiles_217: -899512002
       final_tiles_212: 1275533759
+      final_tiles_217: -899512002
+      final_tiles_47: 2022042695
       final_tiles_107: -448721808
       final_tiles_147: -1289970007
       final_tiles_208: 445761765
@@ -4907,8 +4907,8 @@ TextureImporter:
       final_tiles_132: -919600954
       final_tiles_35: 727755477
       final_tiles_148: 291499220
-      final_tiles_170: -66305675
       final_tiles_218: 178271820
+      final_tiles_170: -66305675
       final_tiles_88: -914505436
       final_tiles_162: -1000726600
       final_tiles_86: 638593305
@@ -4988,8 +4988,8 @@ TextureImporter:
       final_tiles_144: -1748773550
       final_tiles_188: 2087288674
       final_tiles_142: -2126147010
-      final_tiles_31: 1320676236
       final_tiles_175: -831693258
+      final_tiles_31: 1320676236
       final_tiles_108: 710022726
       final_tiles_219: -580080743
       final_tiles_220: -1246216507
