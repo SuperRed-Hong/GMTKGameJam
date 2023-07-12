@@ -9,12 +9,15 @@ public class HelpHand : Checker
     private int growTime=0;
     private ArmController arm;
     public HelpHand(PlayerManager manager, ArmController arm){
+        enable=false;
         this.manager=manager;
         this.arm=arm;
         growTime=0;
     }
     public override int Check(){
-        //Debug.Log(manager.DetectDistance());
+        if(!enable){
+            return 0;
+        }
         if(manager.DetectDistance()<growMaxDistance){
             if(growTime<growMaxTime){
                 ++growTime;
@@ -24,6 +27,16 @@ public class HelpHand : Checker
             growTime=0;
             arm.ResetArmLength();
         }
-        return 0;
+        return 1;
+    }
+    public override void Reset(){
+        growTime=0;
+        arm.ResetArmLength();
+    }
+    public override void Pause(){
+        enable=false;
+    }
+    public override void Resume(){
+        enable=true;
     }
 }
