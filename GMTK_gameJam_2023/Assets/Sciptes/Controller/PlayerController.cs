@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         if (!_isStunned) {
-            if (moveHorizontal > 0.1f || moveHorizontal < -0.1f)
+            if (moveHorizontal !=0)
             {
 
                 rb2D.AddForce(new Vector2(moveHorizontal * moveSpeed, 0f), ForceMode2D.Impulse);
