@@ -50,27 +50,59 @@ public class ChooseCardUI : MonoBehaviour
     {
         if (!playerManager.returnWinner())
         {
-            lastCard = Random.Range(0, doctorCards.Count);
-            currentCard = Random.Range(0, doctorCards.Count);
-            while(lastCard == currentCard)
+            if (playerManager.whoIsCacher())
             {
-                currentCard = Random.Range(0, doctorCards.Count);
+                lastCard = Random.Range(0, doctorCards.Count - 1);
+                currentCard = Random.Range(0, doctorCards.Count - 1);
+                while (lastCard == currentCard)
+                {
+                    currentCard = Random.Range(0, doctorCards.Count - 1);
+                }
+                image.sprite = images[0];
+                Instantiate(doctorCards[lastCard], left);
+                Instantiate(doctorCards[currentCard], right);
             }
-            image.sprite = images[0];
-            Instantiate(doctorCards[lastCard],left);
-            Instantiate(doctorCards[currentCard],right);
+            else
+            {
+                lastCard = Random.Range(1, doctorCards.Count);
+                currentCard = Random.Range(1, doctorCards.Count);
+                while (lastCard == currentCard)
+                {
+                    currentCard = Random.Range(1, doctorCards.Count);
+                }
+                image.sprite = images[0];
+                Instantiate(doctorCards[lastCard], left);
+                Instantiate(doctorCards[currentCard], right);
+            }
+
         }
         else
         {
-            lastCard = Random.Range(0, patientCards.Count);
-            currentCard = Random.Range(0, patientCards.Count);
-            while (lastCard == currentCard)
+            if (playerManager.whoIsCacher())
             {
-                currentCard = Random.Range(0, patientCards.Count);
+                lastCard = Random.Range(1, patientCards.Count);
+                currentCard = Random.Range(1, patientCards.Count);
+                while (lastCard == currentCard)
+                {
+                    currentCard = Random.Range(1, patientCards.Count);
+                }
+                image.sprite = images[1];
+                Instantiate(patientCards[lastCard], left);
+                Instantiate(patientCards[currentCard], right);
             }
-            image.sprite = images[1];
-            Instantiate(patientCards[lastCard],left);
-            Instantiate(patientCards[currentCard],right);
+            else
+            {
+                lastCard = Random.Range(0, patientCards.Count - 1);
+                currentCard = Random.Range(0, patientCards.Count - 1);
+                while (lastCard == currentCard)
+                {
+                    currentCard = Random.Range(0, patientCards.Count - 1);
+                }
+                image.sprite = images[1];
+                Instantiate(patientCards[lastCard], left);
+                Instantiate(patientCards[currentCard], right);
+            }
+
         }
 
     }

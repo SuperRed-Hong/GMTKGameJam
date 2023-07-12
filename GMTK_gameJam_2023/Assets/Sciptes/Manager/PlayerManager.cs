@@ -114,6 +114,10 @@ public class PlayerManager : MonoBehaviour
     {
         return winner;
     }
+    public bool whoIsCacher()
+    {
+        return cacher;
+    }
     public void EndGame(bool role)
     {
         Debug.Log(role);
