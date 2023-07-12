@@ -28,17 +28,16 @@ public class UIController : MonoBehaviour
     public GameObject ContinueButton;
 
     private bool firstplay = true;
-    //public float timeleft;
     public TextMeshProUGUI CountDown_tet;
-    //private bool isCounting;
 
     public AudioManager audioManager;
-    //public AudioManager audiomanager;
 
     public PlayerManager playerManager;
+
+
     public void Awake()
     {
-        //audiomanager = GameObject.Find("Canvas").GetComponent<AudioManager>();
+        
         audioManager = GetComponent<AudioManager>();
         playerManager = GetComponent<PlayerManager>();
     }
@@ -46,23 +45,13 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //isCounting = true;
-        //testScene(4);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (isCounting)
-        {
-            timeleft -= Time.deltaTime;
-        }
-        CountDown_tet.text = timeleft.ToString(format: "0");
-        if(timeleft <= 0 && isCounting)
-        {
-            isCounting = false;
-        }*/
+
     }
 
 
@@ -86,7 +75,6 @@ public class UIController : MonoBehaviour
 
     public void score()
     {
-        //audiomanager.MusicChange(2);
         ScoreUIController  textscore= Instantiate(scorePrefab, canvasRoot).GetComponent<ScoreUIController>();
         textscore.SetDoctor(doctorScore.text);
         textscore.SetPatient(patientScore.text);
@@ -140,5 +128,7 @@ public class UIController : MonoBehaviour
     {
         patientScore.text = Score.ToString();
     }
+
+
 }
 

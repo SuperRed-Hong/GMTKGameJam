@@ -213,6 +213,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Win(){
+        manager.whoWin(true);
         manager.EndGame(true);
         //Debug.Log(character);
     }

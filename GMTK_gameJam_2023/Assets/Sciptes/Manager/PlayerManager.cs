@@ -14,6 +14,8 @@ public class PlayerManager : MonoBehaviour
     private bool cacher;//记录当前抓人者
     private int doctorScore;
     private int patientScore;
+    private bool winner;
+
     //AudioManager audioManager;
 
     private void Awake()
@@ -103,6 +105,14 @@ public class PlayerManager : MonoBehaviour
         Destroy(player1.gameObject);
         Destroy(player2.gameObject);
         checker_list.Clear();
+    }
+    public void whoWin(bool role)
+    {
+        winner= role == cacher;
+    }
+    public bool returnWinner()
+    {
+        return winner;
     }
     public void EndGame(bool role)
     {
