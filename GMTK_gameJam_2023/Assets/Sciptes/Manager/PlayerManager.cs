@@ -20,17 +20,18 @@ public class PlayerManager : MonoBehaviour
 
     private void Awake()
     {
-        cacher = false;
+        cacher = true;
         checker_list = new List<Checker>();
         //scoreManager=GameObject.Find("GameManager").GetComponent<ScoreManager>();
         uiController = GetComponent<UIController>();
-        StartGame();
         //audioManager = GameObject.Find("Canvas").GetComponent<AudioManager>();
     }
     // Start is called before the first frame update
     void Start()
     {
-        //Debug.Log(Time.deltaTime);
+        AddChecker(new TimeCountDown(this));
+        SpawnPlayer();
+        StartCheck();
     }
 
     // Update is called once per frame
@@ -61,9 +62,9 @@ public class PlayerManager : MonoBehaviour
 
     public void CheckByTime()
     {
-        foreach (Checker checher in checker_list)
+        foreach (Checker checker in checker_list)
         {
-            checher.Check();
+            checker.Check();
         }
     }
 
@@ -72,9 +73,32 @@ public class PlayerManager : MonoBehaviour
         InvokeRepeating("CheckByTime", 0f, 0.02f);
     }
 
-    public void ClearCheck()
+    public IEnumerator ClearCheck()
     {
         CancelInvoke("CheckByTime");
+        yield return new WaitForSeconds(0.02f);
+        checker_list.Clear();
+    }
+
+    public void PauseCheck(){
+        foreach (Checker checker in checker_list)
+        {
+            checker.Pause();
+        }
+    }
+
+    public void ResumeCheck(){
+        foreach (Checker checker in checker_list)
+        {
+            checker.Resume();
+        }
+    }
+
+    public void ResetCheck(){
+        foreach (Checker checker in checker_list)
+        {
+            checker.Reset();
+        }
     }
 
     public float DetectDistance()
@@ -89,22 +113,24 @@ public class PlayerManager : MonoBehaviour
 
     public PlayerController GetPlayer1()
     {
-        return player1.GetComponent<PlayerController>();
+        return player1;
     }
 
     public PlayerController GetPlayer2()
     {
-        return player2.GetComponent<PlayerController>();
+        return player2;
     }
     private IEnumerator DestroyPlayers()
     {
-        ClearCheck();
+        //ClearCheck();
+        PauseCheck();
+        ResetCheck();
         player1.onStunned();
         player2.onStunned();
         yield return new WaitForSeconds(1f);
         Destroy(player1.gameObject);
         Destroy(player2.gameObject);
-        checker_list.Clear();
+        //checker_list.Clear();
     }
     public void whoWin(bool role)
     {
@@ -147,8 +173,8 @@ public class PlayerManager : MonoBehaviour
     {
         cacher = !cacher;
         SpawnPlayer();
-        AddChecker(new TimeCountDown(this));
-        StartCheck();
+        //AddChecker(new TimeCountDown(this));
+        ResumeCheck();
     }
     public void RefreshTime(float time)
     {

@@ -31,7 +31,7 @@ public class TimeCountDown : Checker
         return 1;
     }
     public override void Reset(){
-        RefreshCount=(int)(1f/0.02f);
+        RemainTime=30f;
         timeCount=0;
     }
     public override void Pause(){

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Impact : Skill{
     private PlayerManager manager;
-    private float range=5f;
-    private float prepareTime=1f;
+    private float range=4f;
+    private float prepareTime=0.3f;
     private float influenceTime=5f;
 
     public Impact(PlayerManager manager, PlayerController player){
