@@ -26,7 +26,7 @@ public class DestoryByTime : MonoBehaviour
     void Update()
     {
         time -= Time.deltaTime;
-        Debug.Log(time);
+        //Debug.Log(time);
         if(time <=0)
         {
             audioManager.MusicChange(0);
