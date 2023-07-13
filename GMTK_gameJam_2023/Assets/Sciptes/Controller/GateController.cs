@@ -5,22 +5,16 @@ using UnityEngine;
 public class GateController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb2D;//自己的刚体
-    [SerializeField] private float startTime;
-    [SerializeField] private float timeCost;
-    [SerializeField] private float period;
+    [SerializeField] private int period;
     [SerializeField] private float speed;
+    private Vector2 originPos;//记录初始位置，重置用
+    public float upBound;//最高点
+    public float lowBound;//最低点
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("GateUp",startTime,period*2);
-        InvokeRepeating("GateStop",startTime+timeCost,period);
-        InvokeRepeating("GateDown",startTime+period,period*2);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        originPos=transform.position;
+        GameObject.Find("UIManager").GetComponent<PlayerManager>().AddChecker(new Gate(this, period, upBound, lowBound));
     }
 
     public void GateUp(){
@@ -33,6 +27,9 @@ public class GateController : MonoBehaviour
 
     public void GateStop(){
         rb2D.velocity=new Vector2(0f,0f);
+    }
+    public void GateReset(){
+        transform.position=originPos;
     }
 
 }

@@ -5,73 +5,122 @@ using UnityEngine.UI;
 
 public class ChooseCardUI : MonoBehaviour
 {
-    public Button left;
-    public Button right;
     public Image image;
-    public Image maskBg;
 
-    private List<Sprite> _pics;
+    private List<GameObject> doctorCards;
+    private List<GameObject> patientCards;
+    private List<Sprite> images;
 
-    private int _curPic;
+    private PlayerManager playerManager;
+    private int lastCard;
+    private int currentCard;
 
-    AudioSource audioSource1;
+    public Transform left;
+    public Transform right;
+    Transform mousePos;
 
     private void Awake()
     {
-        _pics = new List<Sprite>();
-        _pics.Add(Resources.Load<Sprite>("t1"));
-        _pics.Add(Resources.Load<Sprite>("t2"));
-        _pics.Add(Resources.Load<Sprite>("t3"));
-        _pics.Add(Resources.Load<Sprite>("t4"));
-        _pics.Add(Resources.Load<Sprite>("t5"));
-        _pics.Add(Resources.Load<Sprite>("t6"));
+        playerManager = GetComponent<PlayerManager>();
+        doctorCards = new List<GameObject>();
+        doctorCards.Add(Resources.Load<GameObject>("t1"));
+        doctorCards.Add(Resources.Load<GameObject>("t2"));
+        doctorCards.Add(Resources.Load<GameObject>("t3"));
+        doctorCards.Add(Resources.Load<GameObject>("t4"));
+        doctorCards.Add(Resources.Load<GameObject>("t5"));
 
-        _curPic = 0;
+        patientCards = new List<GameObject>();
+        patientCards.Add(Resources.Load<GameObject>("t1"));
+        patientCards.Add(Resources.Load<GameObject>("t2"));
+        patientCards.Add(Resources.Load<GameObject>("t3"));
+        patientCards.Add(Resources.Load<GameObject>("t4"));
+        patientCards.Add(Resources.Load<GameObject>("t5"));
 
-        audioSource1 = GameObject.Find("UIClick").GetComponent<AudioSource>();
+        images = new List<Sprite>();
+        images.Add(Resources.Load<Sprite>("doctorShaking"));
+        images.Add(Resources.Load<Sprite>("patientShaking"));
     }
 
     private void Start()
     {
-        audioSource1.Play();
-        UpdateImage();
-    }
-
-    public void OnLeftClick()
-    {
-        audioSource1.Play();
-        _curPic--;
-        UpdateImage();
-    }
-
-    public void OnRightClick()
-    {
-        audioSource1.Play();
-        _curPic++;
         UpdateImage();
     }
 
     private void UpdateImage()
     {
-        image.sprite = _pics[_curPic];
-        if (_curPic == 0)
+        if (!playerManager.returnWinner())
         {
-            left.gameObject.SetActive(false);
-        }
-        else if (_curPic == _pics.Count - 1)
-        {
-            right.gameObject.SetActive(false);
+            if (playerManager.whoIsCacher())
+            {
+                lastCard = Random.Range(0, doctorCards.Count - 1);
+                currentCard = Random.Range(0, doctorCards.Count - 1);
+                while (lastCard == currentCard)
+                {
+                    currentCard = Random.Range(0, doctorCards.Count - 1);
+                }
+                image.sprite = images[0];
+                Instantiate(doctorCards[lastCard], left);
+                Instantiate(doctorCards[currentCard], right);
+            }
+            else
+            {
+                lastCard = Random.Range(1, doctorCards.Count);
+                currentCard = Random.Range(1, doctorCards.Count);
+                while (lastCard == currentCard)
+                {
+                    currentCard = Random.Range(1, doctorCards.Count);
+                }
+                image.sprite = images[0];
+                Instantiate(doctorCards[lastCard], left);
+                Instantiate(doctorCards[currentCard], right);
+            }
+
         }
         else
         {
-            left.gameObject.SetActive(true);
-            right.gameObject.SetActive(true);
+            if (playerManager.whoIsCacher())
+            {
+                lastCard = Random.Range(1, patientCards.Count);
+                currentCard = Random.Range(1, patientCards.Count);
+                while (lastCard == currentCard)
+                {
+                    currentCard = Random.Range(1, patientCards.Count);
+                }
+                image.sprite = images[1];
+                Instantiate(patientCards[lastCard], left);
+                Instantiate(patientCards[currentCard], right);
+            }
+            else
+            {
+                lastCard = Random.Range(0, patientCards.Count - 1);
+                currentCard = Random.Range(0, patientCards.Count - 1);
+                while (lastCard == currentCard)
+                {
+                    currentCard = Random.Range(0, patientCards.Count - 1);
+                }
+                image.sprite = images[1];
+                Instantiate(patientCards[lastCard], left);
+                Instantiate(patientCards[currentCard], right);
+            }
+
         }
+
     }
 
+    private void Update()
+    {
+        mousePos.position = Input.mousePosition;
+        if(mousePos.position.x >= image.transform.position.x)
+        {
+            image.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        }
+        else
+        {
+            image.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+        }
+    }
     public void Close()
     {
-        audioSource1.Play();
         Destroy(gameObject);
     }
 }

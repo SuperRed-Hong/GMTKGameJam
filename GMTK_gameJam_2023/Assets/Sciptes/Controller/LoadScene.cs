@@ -5,7 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
+    AudioManager audioManager;
     public GameObject comic1Prefab;
+
+    private void Start()
+    {
+        audioManager = GetComponent<AudioManager>();
+    }
     public void back()
     {
         SceneManager.LoadScene("Start game");
@@ -17,7 +23,8 @@ public class LoadScene : MonoBehaviour
     public void firstStart()
     {
         Instantiate(comic1Prefab, gameObject.transform);
-        Invoke("again", 6.0f);
+        audioManager.MusicChange(4);
+        Invoke("again", 4.0f);
     }
 
 

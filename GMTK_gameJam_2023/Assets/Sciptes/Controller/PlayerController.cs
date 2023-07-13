@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float basicMoveSpeed;
     private float moveSpeed;
     [SerializeField] private float jumpForce;
+    
     private Skill currentSkill;
 
     [SerializeField] private bool character;
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private bool isFacingRight = true;
     private bool _isStunned = false;
     private bool _isCollision;
+    private bool _isInvincible=false;
 
     public AudioManager audioManager;
     private bool isFalling
@@ -213,6 +215,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void Win(){
+        manager.whoWin(true);
         manager.EndGame(true);
         //Debug.Log(character);
     }
@@ -227,14 +230,26 @@ public class PlayerController : MonoBehaviour
 
     public void onStunned()
     {
-        _isStunned = true;
+        if(!_isInvincible){
+            _isStunned = true;
+        }
     }
     public void offStunned()
     {
         _isStunned = false;
     }
+    public void onInvincible()
+    {
+        _isInvincible = true;
+    }
+    public void offInvincible()
+    {
+        _isInvincible = false;
+    }
     public void ChangeSpeed(float ratio){
-        moveSpeed=basicMoveSpeed*ratio;
+        if(!_isInvincible){
+            moveSpeed=basicMoveSpeed*ratio;
+        }
     }
     public void ResetSpeed(){
         moveSpeed=basicMoveSpeed;

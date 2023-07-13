@@ -11,18 +11,33 @@ public class TimeCountDown : Checker
     
     
     public TimeCountDown(PlayerManager manager){
+        enable=true;
         this.manager=manager;
         RefreshCount=(int)(1f/0.02f);
         timeCount=0;
     }
     public override int Check(){
+        if(!enable){
+            return 0;
+        }
         RemainTime-=0.02f;
         if((timeCount++)%RefreshCount==0){
             manager.RefreshTime(RemainTime);
         }
         if(RemainTime<=0){
+            manager.whoWin(false);
             manager.EndGame(false);
         }
-        return 0;
+        return 1;
+    }
+    public override void Reset(){
+        RemainTime=30f;
+        timeCount=0;
+    }
+    public override void Pause(){
+        enable=false;
+    }
+    public override void Resume(){
+        enable=true;
     }
 }

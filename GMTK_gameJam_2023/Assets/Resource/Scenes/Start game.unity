@@ -1086,7 +1086,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4adfbd0ed5ea6834cbe08219b73a9470, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f25426fdbea37f742a451a9bd006c3ea, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3179,7 +3179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 44486b083ba97564a9e17d69a3fb0471, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5b49de658881eda44a901a61818077e6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3656,6 +3656,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 874dd22020e5b894085026a3ea8e3f74, type: 3}
   - {fileID: 8300000, guid: 9048750284f353347aab2daef526b13d, type: 3}
   - {fileID: 8300000, guid: 28cdd14d01df20a4f8bea89e148eb33d, type: 3}
+  - {fileID: 8300000, guid: 7f9777e275612594a998a0e2f16f08d3, type: 3}
   audios:
   - {fileID: 8300000, guid: 3514b876fba6e3e47ac57e8d25b8b034, type: 3}
   - {fileID: 8300000, guid: 3d5cffc5d332e5e4db5cdd3762ce5966, type: 3}
