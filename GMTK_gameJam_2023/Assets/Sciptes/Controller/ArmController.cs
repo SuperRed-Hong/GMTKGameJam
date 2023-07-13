@@ -9,10 +9,12 @@ public class ArmController : MonoBehaviour
     [SerializeField] private Renderer hand;
     [SerializeField] private PlayerController controller;
     private Transform player; // 对手玩家的Transform组件
+    
     private Vector3 originalScale;
     private bool canCatch;
     private bool end = false;
-    public AudioManager audioManager;
+    private AudioManager audioManager;
+    
     public void SetPlayer(Transform p)
     {
         player = p;
