@@ -133,6 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   growthRate: 0.01
   hand: {fileID: 2570264759741294719}
+  longhand: {fileID: 1998203662927715150}
   controller: {fileID: -7701871019092232629}
 --- !u!70 &5432821965774776265
 CapsuleCollider2D:

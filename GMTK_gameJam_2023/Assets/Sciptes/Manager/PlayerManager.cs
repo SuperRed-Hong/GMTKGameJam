@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
     private int doctorScore;
     private int patientScore;
     private bool winner;
+    private Destroy lifeTimeChecker;
 
     //AudioManager audioManager;
 
@@ -22,6 +23,8 @@ public class PlayerManager : MonoBehaviour
     {
         cacher = true;
         checker_list = new List<Checker>();
+        lifeTimeChecker=new Destroy();
+        checker_list.Add(lifeTimeChecker);
         //scoreManager=GameObject.Find("GameManager").GetComponent<ScoreManager>();
         uiController = GetComponent<UIController>();
         //audioManager = GameObject.Find("Canvas").GetComponent<AudioManager>();
@@ -58,6 +61,10 @@ public class PlayerManager : MonoBehaviour
     public void AddChecker(Checker checker)
     {
         checker_list.Add(checker);
+    }
+
+    public void AddLifeTime(LifeTime lifetime){
+        lifeTimeChecker.AddLifeTime(lifetime);
     }
 
     public void CheckByTime()

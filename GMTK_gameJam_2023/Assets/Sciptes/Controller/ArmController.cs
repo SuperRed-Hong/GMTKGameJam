@@ -7,18 +7,25 @@ public class ArmController : MonoBehaviour
     //[SerializeField] private CapsuleCollider2D hand;
     [SerializeField] private float growthRate;
     [SerializeField] private Renderer hand;
+    [SerializeField] private Renderer longhand;
     [SerializeField] private PlayerController controller;
+    private CapsuleCollider2D handCollider;
     private Transform player; // 对手玩家的Transform组件
     
-    private Vector3 originalScale;
+    private Vector2 originalScale;
     private bool canCatch;
     private bool end = false;
     private AudioManager audioManager;
     
+    void Awake(){
+        audioManager = GameObject.Find("UIManager").GetComponent<AudioManager>();
+        handCollider=gameObject.GetComponent<CapsuleCollider2D>();
+    }
+    
     public void SetPlayer(Transform p)
     {
         player = p;
-        originalScale = transform.localScale;
+        originalScale = handCollider.size;
     }
 
     void Start()
@@ -54,18 +61,20 @@ public class ArmController : MonoBehaviour
     }*/
     public void GrowArmLength()
     {
-        Vector3 newScale = transform.localScale;
-        newScale.x += growthRate * Time.deltaTime;
-        newScale.y += growthRate * Time.deltaTime;
-        transform.localScale = newScale;
+        Vector3 newScale = originalScale;
+        newScale.x += 1.6f;
+        handCollider.size = newScale;
+        longhand.enabled=true;
     }
     public void ResetArmLength()
     {
-        transform.localScale = originalScale;
+        handCollider.size = originalScale;
+        longhand.enabled=false;
     }
     public void SetUsable(bool visible)
     {
         hand.enabled = visible;
+        longhand.enabled = false;
         canCatch = visible;
     }
 }

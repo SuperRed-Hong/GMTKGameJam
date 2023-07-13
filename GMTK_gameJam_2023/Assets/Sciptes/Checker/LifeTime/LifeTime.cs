@@ -4,6 +4,6 @@ using UnityEngine;
 
 public abstract class LifeTime
 {
-    protected int lifeTime;
+    public int lifeTime;
     public abstract void Die();
 }
