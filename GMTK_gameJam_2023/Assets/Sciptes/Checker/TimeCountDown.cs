@@ -25,6 +25,7 @@ public class TimeCountDown : Checker
             manager.RefreshTime(RemainTime);
         }
         if(RemainTime<=0){
+            manager.RefreshTime(RemainTime);
             manager.whoWin(false);
             manager.EndGame(false);
         }

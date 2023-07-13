@@ -7,7 +7,6 @@ public class ArmController : MonoBehaviour
     //[SerializeField] private CapsuleCollider2D hand;
     [SerializeField] private float growthRate;
     [SerializeField] private Renderer hand;
-    [SerializeField] private Renderer arm;
     [SerializeField] private PlayerController controller;
     private Transform player; // 对手玩家的Transform组件
     private Vector3 originalScale;
@@ -64,7 +63,7 @@ public class ArmController : MonoBehaviour
     }
     public void SetUsable(bool visible)
     {
-        hand.enabled = arm.enabled = visible;
+        hand.enabled = visible;
         canCatch = visible;
     }
 }
