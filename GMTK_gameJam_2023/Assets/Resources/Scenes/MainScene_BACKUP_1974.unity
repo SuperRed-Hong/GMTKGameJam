@@ -1514,10 +1514,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2D: {fileID: 252759311}
-  startTime: 2
-  timeCost: 1.2
   period: 4
   speed: -5
+  upBound: 0
+  lowBound: 0
 --- !u!1 &266636632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,7 +1674,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elevator: {fileID: 1856559576}
   speed: 5
-  period: 3
+  upBound: 0
+  lowBound: 0
 --- !u!1 &374450516
 GameObject:
   m_ObjectHideFlags: 0

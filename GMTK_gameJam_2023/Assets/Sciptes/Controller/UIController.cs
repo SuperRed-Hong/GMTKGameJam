@@ -37,7 +37,6 @@ public class UIController : MonoBehaviour
 
     public void Awake()
     {
-        
         audioManager = GetComponent<AudioManager>();
         playerManager = GetComponent<PlayerManager>();
     }
@@ -94,6 +93,7 @@ public class UIController : MonoBehaviour
         }
 
     }
+
 
     public void comic2()
     {

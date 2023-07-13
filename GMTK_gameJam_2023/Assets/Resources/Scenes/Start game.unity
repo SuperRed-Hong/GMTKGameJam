@@ -1040,7 +1040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e16ae26c3d94614c80655b5e8a2abe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chooseLevelPrefabs: {fileID: 3877305637582224997, guid: 2b20ebf701e5ebb4c9f418138686d38f, type: 3}
+  chooseMapPrefabs: {fileID: 3877305637582224997, guid: 2b20ebf701e5ebb4c9f418138686d38f, type: 3}
   canvasRoot: {fileID: 2132597809}
 --- !u!1 &715553820
 GameObject:

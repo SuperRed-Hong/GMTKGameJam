@@ -13,12 +13,20 @@ public class DestoryByTime : MonoBehaviour
     }
     private void Start()
     {
-        audioManager.MusicChange(2);
+        if(time == 6.0f)
+        {
+            audioManager.MusicChange(2);
+        }
+        if(time == 5.0f)
+        {
+            audioManager.MusicChange(4);
+        }
     }
     // Update is called once per frame
     void Update()
     {
         time -= Time.deltaTime;
+        Debug.Log(time);
         if(time <=0)
         {
             audioManager.MusicChange(0);

@@ -1719,7 +1719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0
-  zhenFu: 10
+  zhenFu: 0.1
   HZ: 1
 --- !u!1 &1931515083
 GameObject:
