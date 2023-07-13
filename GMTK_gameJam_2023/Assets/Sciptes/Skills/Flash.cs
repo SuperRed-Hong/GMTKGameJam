@@ -8,7 +8,7 @@ public class Flash : Skill
         this.player=player;
     }
     public override int UseSkill(){
-        player.transform.Translate(new Vector2(0f, 2f));
+        player.transform.Translate(new Vector2(player.getMoveHorizontal()*2f, player.getMoveVertical()*2f));
         return 0;
     }
 }

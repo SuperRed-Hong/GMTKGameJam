@@ -8,6 +8,7 @@ TagManager:
   - OneWayPlatform
   - Gate
   - elevator
+  - Card
   layers:
   - Default
   - TransparentFX

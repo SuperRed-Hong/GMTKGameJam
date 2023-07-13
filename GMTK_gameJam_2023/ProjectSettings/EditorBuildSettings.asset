@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Resource/Scenes/Start game.unity
+    path: Assets/Resources/Scenes/Start game.unity
     guid: 3b002c9688d2d69409354448e9a2380d
   - enabled: 1
-    path: Assets/Resource/Scenes/DoctorWin.unity
+    path: Assets/Resources/Scenes/DoctorWin.unity
     guid: abc372f579611f240848ac52a84fa4f4
   - enabled: 1
-    path: Assets/Resource/Scenes/PatientWin.unity
+    path: Assets/Resources/Scenes/PatientWin.unity
     guid: 377add55e59d58243a81619ffca27759
   - enabled: 1
-    path: Assets/Resource/Scenes/MainScene.unity
+    path: Assets/Resources/Scenes/MainScene.unity
     guid: c65e0d7545ce9de42b819b4ecf49d9fd
   m_configObjects: {}

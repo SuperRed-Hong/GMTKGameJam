@@ -6,7 +6,7 @@ public class Shield : Skill
 {
     private float duration=3f;
     public Shield(PlayerController player){
-        
+        this.player = player;
     }
     public override int UseSkill(){
         player.StartCoroutine(Protect());

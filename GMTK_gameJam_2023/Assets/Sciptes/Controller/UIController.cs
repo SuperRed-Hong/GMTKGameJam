@@ -61,12 +61,16 @@ public class UIController : MonoBehaviour
         {
             isStop = true;
             audioManager.AudioPlay(5);
-            //Time.timeScale = 0;
+            Time.timeScale = 0;
             Instantiate(stopPrefab, canvasRoot);
             playerManager.ClearCheck();
         }
     }
 
+    public void resetStop()
+    {
+        isStop = false;
+    }
     public void back()
     {
         audioManager.AudioPlay(5);
@@ -82,11 +86,11 @@ public class UIController : MonoBehaviour
         {
             firstplay = false;
             Invoke("comic2", 6f);
-            Invoke("nextTurn", 11.1f);
+            Invoke("chooseCard", 11.1f);
         }
         else
         {
-            Invoke("nextTurn", 6.1f);
+            Invoke("chooseCard", 6.1f);
         }
 
     }
@@ -99,8 +103,7 @@ public class UIController : MonoBehaviour
     public void chooseCard()
     {
 
-        //audioManager.AudioPlay(5);
-        //Instantiate(chooseCardPrefab, canvasRoot);
+        Instantiate(chooseCardPrefab, canvasRoot);
     }
 
     public void nextTurn()
@@ -128,7 +131,6 @@ public class UIController : MonoBehaviour
     {
         patientScore.text = Score.ToString();
     }
-
 
 }
 

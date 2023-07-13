@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,9 +10,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CapsuleCollider2D playerCollider;
     [SerializeField] private ArmController arm;
     private PlayerController opponent;
+    private PlayerController playerController;
     private PlayerManager manager;
     private Rigidbody2D rb2D;
     Animator animator;
+    Image dcard;
+    Image pcard;
 
     [SerializeField] private float basicMoveSpeed;
     private float moveSpeed;
@@ -77,10 +81,22 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         role=character;
         audioManager = GameObject.Find("UIManager").GetComponent<AudioManager>();
+        dcard = GameObject.Find("dcard1").GetComponent<Image>();
+        pcard = GameObject.Find("pcard1").GetComponent<Image>();
+        playerController = GetComponent<PlayerController>();
     }
     void Start()
     {
+        if (dcard.sprite != null)
+        {
+            giveSkill(dcard.sprite.name);
+        }
+        if(pcard.sprite != null)
+        {
+            giveSkill(pcard.sprite.name);
+        }
         moveSpeed=basicMoveSpeed;
+
     }
     void Update()
     {
@@ -98,8 +114,11 @@ public class PlayerController : MonoBehaviour
             {
                 if (!_isStunned && currentSkill != null)
                 {
+                    audioManager.AudioPlay(3);
                     currentSkill.UseSkill();
                     currentSkill=null;
+                    dcard.sprite = null;
+                    dcard.color = new Color(255, 255, 255, 0);
                 }
             }
         }else{
@@ -116,8 +135,11 @@ public class PlayerController : MonoBehaviour
             {
                 if (!_isStunned && currentSkill != null)
                 {
+                    audioManager.AudioPlay(3);
                     currentSkill.UseSkill();
                     currentSkill=null;
+                    pcard.sprite = null;
+                    pcard.color = new Color(255, 255, 255, 0);
                 }
             }
         }
@@ -278,5 +300,51 @@ public class PlayerController : MonoBehaviour
 
     public void SetManager(PlayerManager manager){
         this.manager=manager;
+    }
+    public float getMoveHorizontal()
+    {
+        return moveHorizontal;
+    }
+    public float getMoveVertical()
+    {
+        return moveVertical;
+    }
+    public void giveSkill(string cardName)
+    {
+        switch (cardName)
+        {
+            case "金钟罩d":
+                playerController.SetSkill(new Shield(playerController));
+                break;
+            case "减速d":
+                playerController.SetSkill(new Impact(manager, playerController));
+                break;
+            case "闪现d":
+                playerController.SetSkill(new Flash(playerController));
+                break;
+            case "障碍d":
+                
+                break;
+            case "伸手d":
+                
+                break;
+            case "金钟罩p":
+                playerController.SetSkill(new Shield(playerController));
+                break;
+            case "减速p":
+                playerController.SetSkill(new Impact(manager, playerController));
+                break;
+            case "闪现p":
+                playerController.SetSkill(new Flash(playerController));
+                break;
+            case "障碍p":
+                
+                break;
+            case "伸手p":
+                
+                break;
+            default:
+                break;
+        }
     }
 }

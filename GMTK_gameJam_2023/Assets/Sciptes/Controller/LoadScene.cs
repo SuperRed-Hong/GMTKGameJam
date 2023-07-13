@@ -10,23 +10,44 @@ public class LoadScene : MonoBehaviour
 
     private void Start()
     {
-        audioManager = GetComponent<AudioManager>();
+        audioManager = GameObject.Find("Canvas").GetComponent<AudioManager>();
     }
     public void back()
     {
         SceneManager.LoadScene("Start game");
     }
-    public void again()
+    public void map1()
     {
         SceneManager.LoadScene("MainScene");
     }
-    public void firstStart()
+    public void map2()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+    public void map3()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+    public void firstStartmap1()
+    {
+        Invoke("comic1Play", 0.5f);
+        Invoke("map1", 4.0f);
+    }
+    public void firstStartmap2()
+    {
+        Invoke("comic1Play", 0.5f);
+        Invoke("map2", 4.0f);
+    }
+    public void firstStartmap3()
+    {
+        Invoke("comic1Play", 0.5f);
+        Invoke("map3", 4.0f);
+    }
+    public void comic1Play()
     {
         Instantiate(comic1Prefab, gameObject.transform);
         audioManager.MusicChange(4);
-        Invoke("again", 4.0f);
     }
-
 
     public void exit()
     {

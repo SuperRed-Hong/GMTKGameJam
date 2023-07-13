@@ -17,28 +17,27 @@ public class ChooseCardUI : MonoBehaviour
 
     public Transform left;
     public Transform right;
-    Transform mousePos;
 
     private void Awake()
     {
-        playerManager = GetComponent<PlayerManager>();
+        playerManager = GameObject.Find("UIManager").GetComponent<PlayerManager>();
         doctorCards = new List<GameObject>();
-        doctorCards.Add(Resources.Load<GameObject>("t1"));
-        doctorCards.Add(Resources.Load<GameObject>("t2"));
-        doctorCards.Add(Resources.Load<GameObject>("t3"));
-        doctorCards.Add(Resources.Load<GameObject>("t4"));
-        doctorCards.Add(Resources.Load<GameObject>("t5"));
+        doctorCards.Add(Resources.Load<GameObject>("Prefabs/金钟罩d"));
+        doctorCards.Add(Resources.Load<GameObject>("Prefabs/减速d"));
+        doctorCards.Add(Resources.Load<GameObject>("Prefabs/闪现d"));
+        doctorCards.Add(Resources.Load<GameObject>("Prefabs/障碍d"));
+        doctorCards.Add(Resources.Load<GameObject>("Prefabs/伸手d"));
 
         patientCards = new List<GameObject>();
-        patientCards.Add(Resources.Load<GameObject>("t1"));
-        patientCards.Add(Resources.Load<GameObject>("t2"));
-        patientCards.Add(Resources.Load<GameObject>("t3"));
-        patientCards.Add(Resources.Load<GameObject>("t4"));
-        patientCards.Add(Resources.Load<GameObject>("t5"));
+        patientCards.Add(Resources.Load<GameObject>("Prefabs/金钟罩p"));
+        patientCards.Add(Resources.Load<GameObject>("Prefabs/减速p"));
+        patientCards.Add(Resources.Load<GameObject>("Prefabs/闪现p"));
+        patientCards.Add(Resources.Load<GameObject>("Prefabs/障碍p"));
+        patientCards.Add(Resources.Load<GameObject>("Prefabs/伸手p"));
 
         images = new List<Sprite>();
-        images.Add(Resources.Load<Sprite>("doctorShaking"));
-        images.Add(Resources.Load<Sprite>("patientShaking"));
+        images.Add(Resources.Load<Sprite>("Art/UI/doctorShaking"));
+        images.Add(Resources.Load<Sprite>("Art/UI/patientShaking"));
     }
 
     private void Start()
@@ -109,8 +108,8 @@ public class ChooseCardUI : MonoBehaviour
 
     private void Update()
     {
-        mousePos.position = Input.mousePosition;
-        if(mousePos.position.x >= image.transform.position.x)
+        Vector2 mousePos = Input.mousePosition;
+        if(mousePos.x >= image.transform.position.x)
         {
             image.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
         }
@@ -119,6 +118,7 @@ public class ChooseCardUI : MonoBehaviour
             image.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
         }
     }
+
     public void Close()
     {
         Destroy(gameObject);
