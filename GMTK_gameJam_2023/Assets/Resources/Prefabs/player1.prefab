@@ -111,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 4107590023047109736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0129, y: -0.0359, z: 0}
-  m_LocalScale: {x: 0.086874925, y: 0.076423414, z: 0.2633476}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4138104743396676791}
@@ -166,6 +166,8 @@ GameObject:
   - component: {fileID: -7701871019092232629}
   - component: {fileID: 1074782433}
   - component: {fileID: 2706206480465321931}
+  - component: {fileID: 7400638526281010179}
+  - component: {fileID: 1250911838584523433}
   m_Layer: 6
   m_Name: player1
   m_TagString: Player
@@ -182,7 +184,7 @@ Transform:
   m_GameObject: {fileID: 7449310370306352121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.078, y: -0.102, z: 0}
-  m_LocalScale: {x: 11.510802, y: 13.084999, z: 3.7972634}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9152305064959272644}
@@ -230,7 +232,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 545721f85dd05b840bd875bf9735ea55, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 477735ece1a3e844484e885476e17bb5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -272,7 +274,7 @@ Animator:
   m_GameObject: {fileID: 7449310370306352121}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c2f8c1a298ca1464fb633cb3d918ce51, type: 2}
+  m_Controller: {fileID: 9100000, guid: b0a65a771302edb4f8e743cdd4d2320e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -314,8 +316,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009539771, y: -0.0801673}
-  m_Size: {x: 0.033384316, y: 0.006856963}
+  m_Offset: {x: 0.009539676, y: -0.9099379}
+  m_Size: {x: 0.5690525, y: 0.12511553}
   m_Direction: 1
 --- !u!70 &2706206480465321931
 CapsuleCollider2D:
@@ -330,9 +332,39 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010664301, y: -0.020102797}
-  m_Size: {x: 0.065545, y: 0.11979444}
+  m_Offset: {x: 0.039604604, y: -0.1069237}
+  m_Size: {x: 0.82764065, y: 1.5656192}
   m_Direction: 0
+--- !u!114 &7400638526281010179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7449310370306352121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec7ff7e8476cddb4388e42fd77fe7307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGround: 0
+  checkRaduis: 0.08
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  bottomOffset: {x: 0.01, y: -0.9}
+--- !u!114 &1250911838584523433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7449310370306352121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a7bf791e63cd8846a0a3e64cd6b79e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7896215527807718576
 GameObject:
   m_ObjectHideFlags: 0
