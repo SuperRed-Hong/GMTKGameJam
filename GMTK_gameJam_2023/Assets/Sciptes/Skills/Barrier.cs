@@ -13,6 +13,7 @@ public class Barrier : Skill
     public override int UseSkill(){
         //TODO: 在player当前位置创建barrierPrefeb
         player.GetManager().AddLifeTime(new BarrierLifeTime(barrierPrefeb,lifetime));
+        
         return 0;
     }
 }

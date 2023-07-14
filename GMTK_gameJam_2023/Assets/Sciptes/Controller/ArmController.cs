@@ -14,11 +14,8 @@ public class ArmController : MonoBehaviour
     
     private Vector2 originalScale;
     private bool canCatch;
-    private bool end = false;
-    private AudioManager audioManager;
     
     void Awake(){
-        audioManager = GameObject.Find("UIManager").GetComponent<AudioManager>();
         handCollider=gameObject.GetComponent<CapsuleCollider2D>();
     }
     
@@ -26,11 +23,6 @@ public class ArmController : MonoBehaviour
     {
         player = p;
         originalScale = handCollider.size;
-    }
-
-    void Start()
-    {
-        audioManager = GameObject.Find("UIManager").GetComponent<AudioManager>();
     }
     private void Update()
     {
@@ -45,20 +37,14 @@ public class ArmController : MonoBehaviour
     {
         if (canCatch && collider.transform == player)
         {
-            audioManager.AudioPlay(4);
-            if (!end)
-            {
-                controller.Win();
-                end = true;
-            }
+            controller.GetManager().SetTouched(true);
         }
     }
-    /*
     private void OnTriggerExit2D(Collider2D collider){
-        if(collider.transform==player){
-            canCatch=false;
+        if(canCatch && collider.transform==player){
+            controller.GetManager().SetTouched(false);
         }
-    }*/
+    }
     public void GrowArmLength()
     {
         Vector3 newScale = originalScale;

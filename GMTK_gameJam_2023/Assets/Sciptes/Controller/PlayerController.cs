@@ -268,6 +268,9 @@ public class PlayerController : MonoBehaviour
     {
         _isInvincible = false;
     }
+    public bool getInvincible(){
+        return _isInvincible;
+    }
     public void ChangeSpeed(float ratio){
         if(!_isInvincible){
             moveSpeed=basicMoveSpeed*ratio;

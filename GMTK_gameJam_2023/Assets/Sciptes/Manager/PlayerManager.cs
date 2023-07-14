@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour
     private int patientScore;
     private bool winner;
     private Destroy lifeTimeChecker;
+    private bool touched;
 
     //AudioManager audioManager;
 
@@ -25,6 +26,7 @@ public class PlayerManager : MonoBehaviour
         checker_list = new List<Checker>();
         lifeTimeChecker=new Destroy();
         checker_list.Add(lifeTimeChecker);
+        touched=false;
         //scoreManager=GameObject.Find("GameManager").GetComponent<ScoreManager>();
         uiController = GetComponent<UIController>();
         //audioManager = GameObject.Find("Canvas").GetComponent<AudioManager>();
@@ -151,9 +153,16 @@ public class PlayerManager : MonoBehaviour
     {
         return cacher;
     }
+    public void SetTouched(bool state){
+        touched=state;
+    }
+
+    public bool GetTouched(){
+        return touched;
+    }
     public void EndGame(bool role)
     {
-        Debug.Log(role);
+        //Debug.Log(role);
         StartCoroutine(DestroyPlayers());
         //audioManager.MusicChange(2);
         if (role == cacher)
@@ -183,6 +192,7 @@ public class PlayerManager : MonoBehaviour
     public void StartGame()
     {
         cacher = !cacher;
+        touched=false;
         SpawnPlayer();
         //AddChecker(new TimeCountDown(this));
         ResumeCheck();
