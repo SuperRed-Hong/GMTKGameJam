@@ -5,7 +5,7 @@ using UnityEngine;
 public class Barrier : Skill
 {
     private GameObject barrierPrefeb;
-    private int lifetime;
+    private int lifetime = 500;
     private GameObject InstantiateBarrier;
     public Barrier(PlayerController player, GameObject barrierPrefeb){
         this.player=player;

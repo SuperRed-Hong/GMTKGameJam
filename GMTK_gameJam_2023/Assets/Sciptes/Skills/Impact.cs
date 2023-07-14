@@ -6,7 +6,7 @@ public class Impact : Skill{
     private PlayerManager manager;
     private float range=4f;
     private float prepareTime=0.3f;
-    private float influenceTime=5f;
+    private int lifetime=250;
 
     public Impact(PlayerManager manager, PlayerController player){
         this.player=player;
@@ -21,10 +21,8 @@ public class Impact : Skill{
         yield return new WaitForSeconds(prepareTime);
         player.offStunned();
         if(manager.DetectDistance()<range){
-            Debug.Log("Hit");
             player.GetOpponent().ChangeSpeed(0.5f);
-            yield return new WaitForSeconds(influenceTime);
-            player.GetOpponent().ResetSpeed();
+            manager.AddLifeTime(new SlowLifeTime(player.GetOpponent(),lifetime));
         }
     }
 }

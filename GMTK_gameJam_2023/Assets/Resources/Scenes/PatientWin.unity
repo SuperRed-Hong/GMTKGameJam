@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 172432881}
   - component: {fileID: 172432883}
   - component: {fileID: 172432882}
+  - component: {fileID: 172432884}
   m_Layer: 5
   m_Name: small doctor
   m_TagString: Untagged
@@ -234,8 +235,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 535, y: -384}
-  m_SizeDelta: {x: 170, y: 183}
+  m_AnchoredPosition: {x: 489, y: -417}
+  m_SizeDelta: {x: 170, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &172432882
 MonoBehaviour:
@@ -257,7 +258,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e3534351189bde74d91eac61aa3f1d8d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0b30209f0f82bc408b6429f3f166a10, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -275,6 +276,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172432880}
   m_CullTransparentMesh: 1
+--- !u!95 &172432884
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172432880}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aaeff8e9223a9f54180f7d9532f898e2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &402784184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,7 +1140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fbcd7577ba739e54c82687e815bee49d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 88a957fb865d7b841a2f36258c33db2a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2247,7 +2268,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e7058454f58c574d8ac6f6029b0b84b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a8027b26c2b6f3c42af36c8a3d40344c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

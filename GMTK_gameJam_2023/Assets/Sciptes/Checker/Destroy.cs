@@ -17,13 +17,17 @@ public class Destroy : Checker
         foreach(LifeTime lt in lifeTimeList){
             if(--lt.lifeTime<=0){
                 lt.Die();
-                lifeTimeList.Remove(lt);
             }
         }
         return 1;
     }
     public override void Reset(){
-        lifeTimeList.Clear();
+        foreach (LifeTime lt in lifeTimeList)
+        {
+            lt.Die();
+        }
+            lifeTimeList.Clear();
+
     }
     public override void Pause(){
         enable=false;
