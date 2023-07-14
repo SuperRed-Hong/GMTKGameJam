@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     Image dcard;
     Image pcard;
+    public GameObject barrierPrefab;
 
     [SerializeField] private float basicMoveSpeed;
     private float moveSpeed;
@@ -323,10 +324,10 @@ public class PlayerController : MonoBehaviour
                 playerController.SetSkill(new Flash(playerController));
                 break;
             case "障碍d":
-                
+                playerController.SetSkill(new Barrier(playerController, barrierPrefab));
                 break;
             case "伸手d":
-                
+                playerController.SetSkill(new Hand(manager, playerController));
                 break;
             case "金钟罩p":
                 playerController.SetSkill(new Shield(playerController));
@@ -338,10 +339,10 @@ public class PlayerController : MonoBehaviour
                 playerController.SetSkill(new Flash(playerController));
                 break;
             case "障碍p":
-                
+                playerController.SetSkill(new Barrier(playerController, barrierPrefab));
                 break;
             case "伸手p":
-                
+                playerController.SetSkill(new Hand(manager, playerController));
                 break;
             default:
                 break;

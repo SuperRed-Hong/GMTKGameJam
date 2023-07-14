@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716740765983192627}
   m_LocalRotation: {x: -0, y: -0, z: -0.334512, w: 0.9423915}
-  m_LocalPosition: {x: 1.16, y: -0.113, z: 0}
+  m_LocalPosition: {x: 1.16, y: -0.113, z: -0.0001}
   m_LocalScale: {x: 1.0414866, y: 0.9566795, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -296,6 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCollider: {fileID: 2706206480465321931}
   arm: {fileID: 8884551420016399750}
+  barrierPrefab: {fileID: 207317277508514824, guid: 4d045b7dbaa344f49b0421aa08c7c0ce, type: 3}
   basicMoveSpeed: 3
   jumpForce: 40
   character: 1
@@ -357,7 +358,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7896215527807718576}
   m_LocalRotation: {x: -0, y: -0, z: -0.23658119, w: 0.9716117}
-  m_LocalPosition: {x: 1.297, y: 0.068, z: 0}
+  m_LocalPosition: {x: 1.297, y: 0.068, z: -0.0001}
   m_LocalScale: {x: 1.0414866, y: 0.9566795, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -43,7 +43,7 @@ public class ArmController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (canCatch && collider.transform == player)
+        if (canCatch && collider.transform == player )
         {
             audioManager.AudioPlay(4);
             if (!end)
@@ -65,11 +65,13 @@ public class ArmController : MonoBehaviour
         newScale.x += 1.6f;
         handCollider.size = newScale;
         longhand.enabled=true;
+        hand.enabled = false;
     }
     public void ResetArmLength()
     {
         handCollider.size = originalScale;
         longhand.enabled=false;
+        hand.enabled = true;
     }
     public void SetUsable(bool visible)
     {

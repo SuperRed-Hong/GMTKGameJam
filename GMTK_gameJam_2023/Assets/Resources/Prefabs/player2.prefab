@@ -229,6 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCollider: {fileID: 7088456664303720880}
   arm: {fileID: 3161923294051965803}
+  barrierPrefab: {fileID: 2989770712784297516, guid: d9c5037960ba6d14aa26cdaca839a7f8, type: 3}
   basicMoveSpeed: 3
   jumpForce: 40
   character: 0

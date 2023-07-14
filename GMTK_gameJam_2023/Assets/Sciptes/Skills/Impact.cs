@@ -22,7 +22,7 @@ public class Impact : Skill{
         player.offStunned();
         if(manager.DetectDistance()<range){
             Debug.Log("Hit");
-            player.GetOpponent().ChangeSpeed(0.7f);
+            player.GetOpponent().ChangeSpeed(0.5f);
             yield return new WaitForSeconds(influenceTime);
             player.GetOpponent().ResetSpeed();
         }
