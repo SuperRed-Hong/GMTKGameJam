@@ -27,6 +27,6 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetFloat("velocityY", rb.velocity.y);
         animator.SetBool("isGround", physicsCheck.isGround);
         animator.SetBool("isSlow", gameObject.GetComponent<PlayerController>().isSlowed);
-
+        animator.SetBool("isflashing", gameObject.GetComponent<PlayerController>().isflashing);
     }
 }

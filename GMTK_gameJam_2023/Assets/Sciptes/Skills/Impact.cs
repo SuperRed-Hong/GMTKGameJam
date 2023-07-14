@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Impact : Skill{
     private PlayerManager manager;
-    private float range=4f;
+    private float range=6f;
     private float prepareTime=0.3f;
     private int lifetime=250;
     public bool isSlowed;
@@ -27,6 +27,7 @@ public class Impact : Skill{
             player.GetOpponent().ChangeSpeed(0.4f);
             manager.AddLifeTime(new SlowLifeTime(player.GetOpponent(),lifetime));
             player.GetOpponent().isSlowed = true;
+            player.playSmash();
         }
     }
     

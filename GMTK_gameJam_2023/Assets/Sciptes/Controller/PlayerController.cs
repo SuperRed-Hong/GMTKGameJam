@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private PhysicsCheck physicsCheck;
 
     public AudioManager audioManager;
+    public bool isflashing;
     private bool isFalling
     {
         get
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
     public float moveHorizontal;
     public float moveVertical;
     public bool isSlowed ;
+    public GameObject smash;
 
     public bool isRunning
     {
@@ -83,7 +85,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         isSlowed = false;
-
+        isflashing = false;
         physicsCheck = GetComponent<PhysicsCheck>();
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -170,7 +172,7 @@ public class PlayerController : MonoBehaviour
             onFalling();
             FlipFace();
         }
-        
+
 
     }
 
@@ -356,5 +358,24 @@ public class PlayerController : MonoBehaviour
             default:
                 break;
         }
+    }
+    public void playSmash()
+    {
+        smash.SetActive(true);
+        Invoke("stopSmash", 2);
+    }
+    public void playflash()
+    {
+           isflashing = true;
+        Invoke("stopFlash", 1);
+            
+    }
+    public void stopSmash()
+    {
+        smash.SetActive(false);
+    }
+    public void stopFlash()
+    {
+        isflashing = false;
     }
 }
