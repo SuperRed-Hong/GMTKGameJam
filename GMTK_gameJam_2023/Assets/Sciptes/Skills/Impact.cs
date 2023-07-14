@@ -22,7 +22,7 @@ public class Impact : Skill{
         player.offStunned();
         if(manager.DetectDistance()<range){
             player.GetOpponent().ChangeSpeed(0.5f);
-            manager.AddLifeTime(new SlowLifeTime(player.GetOpponent(),lifetime));
+            //manager.AddLifeTime(new SlowLifeTime(player.GetOpponent(),lifetime));
         }
     }
 }
