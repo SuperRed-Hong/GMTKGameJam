@@ -25258,6 +25258,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 34063348, guid: ec4f4e580d455d2062d497e6f7262586, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 34063348, guid: ec4f4e580d455d2062d497e6f7262586, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 808563513, guid: ec4f4e580d455d2062d497e6f7262586, type: 3}
       propertyPath: m_LocalPosition.y
       value: -5.45
@@ -25265,6 +25273,10 @@ PrefabInstance:
     - target: {fileID: 808563514, guid: ec4f4e580d455d2062d497e6f7262586, type: 3}
       propertyPath: upBound
       value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 880910750, guid: ec4f4e580d455d2062d497e6f7262586, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 880910751, guid: ec4f4e580d455d2062d497e6f7262586, type: 3}
       propertyPath: m_LocalPosition.x
