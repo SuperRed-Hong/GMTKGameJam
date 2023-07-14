@@ -267,9 +267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33004c6a6a4333d45b4bf8385133efec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  palyerCollider: {fileID: 973989343}
-  moveSpeed: 0
-  jumpForce: 0
 --- !u!70 &973989343
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -625,3 +622,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2D: {fileID: 1752651439}
+  period: 0
+  speed: 0
+  direction: 0
+  upBound: 0
+  lowBound: 0
