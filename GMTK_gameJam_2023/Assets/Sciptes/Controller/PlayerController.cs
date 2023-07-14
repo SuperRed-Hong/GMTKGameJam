@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private bool _isStunned = false;
     private bool _isCollision;
     private bool _isInvincible=false;
+    private PhysicsCheck physicsCheck;
 
     public AudioManager audioManager;
     private bool isFalling
@@ -62,8 +63,8 @@ public class PlayerController : MonoBehaviour
             
         }
     }
-    private float moveHorizontal;
-    private float moveVertical;
+    public float moveHorizontal;
+    public float moveVertical;
     public bool isRunning
     {
         get
@@ -78,6 +79,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Awake()
     {
+        physicsCheck = GetComponent<PhysicsCheck>();
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         role=character;
@@ -150,18 +152,10 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         if (!_isStunned) {
-            if (moveHorizontal !=0)
-            {
+            rb2D.velocity = new Vector2(moveHorizontal * moveSpeed * Time.deltaTime, rb2D.velocity.y);
+            isRunning = true;
 
-                rb2D.AddForce(new Vector2(moveHorizontal * moveSpeed, 0f), ForceMode2D.Impulse);
-                isRunning = true;
-            }
-            else
-            {
-                isRunning = false;
-            }
-
-            if (!isJumping && moveVertical > 0.1f)
+            if (physicsCheck.isGround && rb2D.velocity.y < 0.1f&& moveVertical>0)
             {
                 audioManager.AudioPlay(1);
                 rb2D.AddForce(new Vector2(0f, moveVertical * jumpForce), ForceMode2D.Impulse);
@@ -219,7 +213,7 @@ public class PlayerController : MonoBehaviour
         {
             CompositeCollider2D platformCollider = currentOneWayPlayform.GetComponent<CompositeCollider2D>();
             Physics2D.IgnoreCollision(playerCollider, platformCollider);
-            yield return new WaitForSeconds(0.35f);
+            yield return new WaitForSeconds(0.3f);
             Physics2D.IgnoreCollision(playerCollider, platformCollider, false);
         }
         else

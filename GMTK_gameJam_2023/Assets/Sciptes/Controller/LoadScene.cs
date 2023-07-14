@@ -22,11 +22,11 @@ public class LoadScene : MonoBehaviour
     }
     public void map2()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("MainScene 3");
     }
     public void map3()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("MainScene 2");
     }
     public void firstStartmap1()
     {

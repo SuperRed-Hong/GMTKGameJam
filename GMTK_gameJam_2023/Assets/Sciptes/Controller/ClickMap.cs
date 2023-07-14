@@ -22,7 +22,7 @@ public class ClickMap : MonoBehaviour
     void Update()
     {
         Vector2 mousePos = Input.mousePosition;
-        Debug.Log(mousePos.x);
+        //Debug.Log(mousePos.x);
         if(mousePos.x >= 171f && mousePos.x <= 594f)
         {
             doctor.position = new Vector3(map1.position.x, doctor.position.y, 0);

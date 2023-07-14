@@ -177,7 +177,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: d8957d4326de1a84db7e40645c17c6be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -338,10 +338,12 @@ MonoBehaviour:
   playerCollider: {fileID: 7088456664303720880}
   arm: {fileID: 3161923294051965803}
   barrierPrefab: {fileID: 207317277508514824, guid: 4d045b7dbaa344f49b0421aa08c7c0ce, type: 3}
-  basicMoveSpeed: 3
-  jumpForce: 40
+  basicMoveSpeed: 600
+  jumpForce: 30
   character: 0
   audioManager: {fileID: 0}
+  moveHorizontal: 0
+  moveVertical: 0
 --- !u!70 &5944975661002489912
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -371,8 +373,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.07, y: -0.04508567}
-  m_Size: {x: 1.0090463, y: 1.7172525}
+  m_Offset: {x: -0.06999999, y: -0.2095843}
+  m_Size: {x: 1.0090463, y: 1.3882552}
   m_Direction: 0
 --- !u!114 &808892423022517617
 MonoBehaviour:
@@ -387,11 +389,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGround: 0
-  checkRaduis: 0.07
+  checkRadius: 0.09
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
-  bottomOffset: {x: -0.06, y: -0.9}
+  bottomOffset: {x: -0.3, y: -0.9}
+  bottomOffset1: {x: -0.11, y: -0.9}
+  bottomOffset2: {x: 0.07, y: -0.9}
+  aspectRatio: 0
 --- !u!114 &8146464903757501475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,7 +548,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 79a24a265b130434ab5bcdec794501cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

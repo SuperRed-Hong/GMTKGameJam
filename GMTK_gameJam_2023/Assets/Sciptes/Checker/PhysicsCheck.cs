@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PhysicsCheck : MonoBehaviour
@@ -8,10 +9,14 @@ public class PhysicsCheck : MonoBehaviour
     public bool isGround;
     [Header("检测参数")]
 
-    public float checkRaduis;
+    public float checkRadius;
     public LayerMask groundLayer;
     public Vector2 bottomOffset;
+    public Vector2 bottomOffset1;
+    public Vector2 bottomOffset2;
 
+
+    public float aspectRatio;
 
     private void Update()
     {
@@ -20,12 +25,15 @@ public class PhysicsCheck : MonoBehaviour
     public void Check()
     {
         //检测地面
-        isGround = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, checkRaduis, groundLayer);
-
+        isGround = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, checkRadius, groundLayer)||
+            Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset1, checkRadius, groundLayer)||
+            Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset2, checkRadius, groundLayer);
     }
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere((Vector2)transform.position + bottomOffset, checkRaduis);
+        Gizmos.DrawWireSphere((Vector2)transform.position + bottomOffset, checkRadius);
+        Gizmos.DrawWireSphere((Vector2)transform.position + bottomOffset1, checkRadius);
+        Gizmos.DrawWireSphere((Vector2)transform.position + bottomOffset2, checkRadius);
     }
 
 }
