@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TimeCountDown : Checker
 {
-    private float RemainTime=10f;
+    private float RemainTime=30f;
     private int timeCount=0;
     private int RefreshCount;
     private ArmController arm;

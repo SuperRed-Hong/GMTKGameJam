@@ -21,7 +21,7 @@ public class Impact : Skill{
         yield return new WaitForSeconds(prepareTime);
         player.offStunned();
         if(manager.DetectDistance()<range){
-            player.GetOpponent().ChangeSpeed(0.5f);
+            player.GetOpponent().ChangeSpeed(0.4f);
             manager.AddLifeTime(new SlowLifeTime(player.GetOpponent(),lifetime));
         }
     }

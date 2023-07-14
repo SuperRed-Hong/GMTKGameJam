@@ -2,17 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlowLifeTime : MonoBehaviour
+public class SlowLifeTime : LifeTime
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    private PlayerController player;
+    public SlowLifeTime(PlayerController player, int lifeTime){
+        this.lifeTime=lifeTime;
+        this.player=player;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public override void Die(){
+        player.ResetSpeed();
     }
 }
