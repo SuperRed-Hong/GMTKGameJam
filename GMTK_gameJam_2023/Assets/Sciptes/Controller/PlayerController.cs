@@ -225,7 +225,9 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("can't get currentOneWayPlayForm");
         }
-        
+    }
+    public Collider2D GetCollider(){
+        return playerCollider;
     }
     private void FlipFace()
     {
@@ -292,6 +294,9 @@ public class PlayerController : MonoBehaviour
     public void SetRole(bool role){
         this.role=role;
         arm.SetUsable(role);
+    }
+    public bool GetRole(){
+        return role;
     }
     public ArmController GetArm(){
         return arm;
