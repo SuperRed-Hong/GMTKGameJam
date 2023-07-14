@@ -24,7 +24,7 @@ public class TimeCountDown : Checker
         if((timeCount++)%RefreshCount==0){
             manager.RefreshTime(RemainTime);
         }
-        if(manager.GetTouched() && !manager.GetPlayer1().getInvincible() && !manager.GetPlayer2.getInvincible()){
+        if(manager.GetTouched() && !manager.GetPlayer1().getInvincible() && !manager.GetPlayer2().getInvincible()){
             manager.whoWin(true);
             manager.EndGame(true);
         }
