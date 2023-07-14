@@ -31,17 +31,17 @@ public class LoadScene : MonoBehaviour
     public void firstStartmap1()
     {
         Invoke("comic1Play", 0.5f);
-        Invoke("map1", 4.0f);
+        Invoke("map1", 4.5f);
     }
     public void firstStartmap2()
     {
         Invoke("comic1Play", 0.5f);
-        Invoke("map2", 4.0f);
+        Invoke("map2", 4.5f);
     }
     public void firstStartmap3()
     {
         Invoke("comic1Play", 0.5f);
-        Invoke("map3", 4.0f);
+        Invoke("map3", 4.5f);
     }
     public void comic1Play()
     {
