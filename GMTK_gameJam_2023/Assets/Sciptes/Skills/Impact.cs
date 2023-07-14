@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Impact : Skill{
@@ -7,6 +8,7 @@ public class Impact : Skill{
     private float range=4f;
     private float prepareTime=0.3f;
     private int lifetime=250;
+    public bool isSlowed;
 
     public Impact(PlayerManager manager, PlayerController player){
         this.player=player;
@@ -24,7 +26,9 @@ public class Impact : Skill{
 
             player.GetOpponent().ChangeSpeed(0.4f);
             manager.AddLifeTime(new SlowLifeTime(player.GetOpponent(),lifetime));
-
+            player.GetOpponent().isSlowed = true;
         }
     }
+    
+
 }

@@ -7764,6 +7764,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: map2
       objectReference: {fileID: 0}
+    - target: {fileID: 1000000000000000, guid: 2b565696ebd4fb9478ab2c97fc29d6a5, type: 3}
+      propertyPath: m_TagString
+      value: OneWayPlatform
+      objectReference: {fileID: 0}
     - target: {fileID: 1000000000000001, guid: 2b565696ebd4fb9478ab2c97fc29d6a5, type: 3}
       propertyPath: m_RootOrder
       value: 5

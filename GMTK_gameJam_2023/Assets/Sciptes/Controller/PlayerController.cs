@@ -65,6 +65,8 @@ public class PlayerController : MonoBehaviour
     }
     public float moveHorizontal;
     public float moveVertical;
+    public bool isSlowed ;
+
     public bool isRunning
     {
         get
@@ -77,8 +79,11 @@ public class PlayerController : MonoBehaviour
             
         }
     }
+
     private void Awake()
     {
+        isSlowed = false;
+
         physicsCheck = GetComponent<PhysicsCheck>();
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -108,7 +113,7 @@ public class PlayerController : MonoBehaviour
             moveVertical = Input.GetAxisRaw("Vertical1");
             if (Input.GetKeyDown(KeyCode.S))
             {
-                if (!_isStunned && currentOneWayPlayform != null && currentOneWayPlayform.tag != "Platform")
+                if (!_isStunned && currentOneWayPlayform != null && currentOneWayPlayform.tag =="OneWayPlatform")
                 {
                     StartCoroutine(DisableCollision());
                 }
@@ -168,6 +173,7 @@ public class PlayerController : MonoBehaviour
         
 
     }
+
 
     private void OnTriggerStay2D(Collider2D collision)
 
@@ -232,7 +238,7 @@ public class PlayerController : MonoBehaviour
             this.gameObject.GetComponent<SpriteRenderer>().flipX=!this.gameObject.GetComponent<SpriteRenderer>().flipX;
         }
     }
-
+    
     public void Win(){
         manager.whoWin(true);
         manager.EndGame(true);
@@ -312,6 +318,7 @@ public class PlayerController : MonoBehaviour
     {
         return moveVertical;
     }
+    
     public void giveSkill(string cardName)
     {
         switch (cardName)

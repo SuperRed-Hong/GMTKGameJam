@@ -11,5 +11,6 @@ public class SlowLifeTime : LifeTime
     }
     public override void Die(){
         player.ResetSpeed();
+        player.isSlowed=false;
     }
 }
