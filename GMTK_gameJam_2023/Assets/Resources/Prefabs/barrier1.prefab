@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 207317277508514831}
   - component: {fileID: 207317277508514830}
   - component: {fileID: 207317277508514825}
-  - component: {fileID: 8042063640519420394}
   m_Layer: 0
   m_Name: barrier1
   m_TagString: Untagged
@@ -134,15 +133,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.53, y: 3.15}
   m_EdgeRadius: 0
---- !u!114 &8042063640519420394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 207317277508514824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5da17cb0a3df90b40add9f9fbcf40beb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
