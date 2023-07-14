@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (!_isStunned && currentSkill != null)
                 {
-                    audioManager.AudioPlay(3);
+                    audioManager.AudioPlay(2);
                     currentSkill.UseSkill();
                     currentSkill=null;
                     dcard.sprite = null;
@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (!_isStunned && currentSkill != null)
                 {
-                    audioManager.AudioPlay(3);
+                    audioManager.AudioPlay(2);
                     currentSkill.UseSkill();
                     currentSkill=null;
                     pcard.sprite = null;

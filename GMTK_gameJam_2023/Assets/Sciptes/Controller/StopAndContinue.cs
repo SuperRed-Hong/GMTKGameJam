@@ -13,7 +13,7 @@ public class StopAndContinue : MonoBehaviour
     }
     public void close()
     {
-        audioManager.AudioPlay(5);
+        audioManager.AudioPlay(4);
         Time.timeScale = 1;
         uiController.resetStop();
         Destroy(gameObject);

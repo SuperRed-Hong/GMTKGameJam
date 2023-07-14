@@ -434,6 +434,7 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
+<<<<<<< HEAD
   - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 2048
@@ -458,6 +459,8 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
+=======
+>>>>>>> 0030b5f11509ba132a417d58870b1ccc1113a19c
   spriteSheet:
     serializedVersion: 2
     sprites:

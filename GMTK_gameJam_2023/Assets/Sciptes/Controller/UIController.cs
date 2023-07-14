@@ -59,7 +59,7 @@ public class UIController : MonoBehaviour
         if (!isStop)
         {
             isStop = true;
-            audioManager.AudioPlay(5);
+            audioManager.AudioPlay(4);
             Time.timeScale = 0;
             Instantiate(stopPrefab, canvasRoot);
             playerManager.ClearCheck();
@@ -72,7 +72,7 @@ public class UIController : MonoBehaviour
     }
     public void back()
     {
-        audioManager.AudioPlay(5);
+        audioManager.AudioPlay(4);
         SceneManager.LoadScene("Start game");
     }
 
