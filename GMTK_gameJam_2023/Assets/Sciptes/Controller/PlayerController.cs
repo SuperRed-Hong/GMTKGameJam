@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         set
         {
             _isFalling = value;
-            animator.SetBool("isFalling", value);
+           
 
         }
     }
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         private set
         {
             _isJumping = value;
-            animator.SetBool("isJumping", value);
+            
         }
     }
     private float moveHorizontal;
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
         private set
         {
             _isRunning = value;
-            animator.SetBool("isRunning", value);
+            
         }
     }
     private void Awake()
