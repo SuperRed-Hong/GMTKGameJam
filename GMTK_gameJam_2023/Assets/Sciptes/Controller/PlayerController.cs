@@ -38,6 +38,11 @@ public class PlayerController : MonoBehaviour
 
     public AudioManager audioManager;
     public bool isflashing;
+    public float moveHorizontal;
+    public float moveVertical;
+    public bool isSlowed;
+    public GameObject smash;
+    public GameObject shield;
     private bool isFalling
     {
         get
@@ -64,10 +69,7 @@ public class PlayerController : MonoBehaviour
             
         }
     }
-    public float moveHorizontal;
-    public float moveVertical;
-    public bool isSlowed ;
-    public GameObject smash;
+
 
     public bool isRunning
     {
@@ -99,11 +101,17 @@ public class PlayerController : MonoBehaviour
     {
         if (dcard.sprite != null)
         {
-            giveSkill(dcard.sprite.name);
+            if (character)
+            {
+                giveSkill(dcard.sprite.name);
+            }
         }
         if(pcard.sprite != null)
         {
-            giveSkill(pcard.sprite.name);
+            if (!character)
+            {
+                giveSkill(pcard.sprite.name);
+            }
         }
         moveSpeed=basicMoveSpeed;
 
@@ -362,13 +370,18 @@ public class PlayerController : MonoBehaviour
     public void playSmash()
     {
         smash.SetActive(true);
-        Invoke("stopSmash", 2);
+        Invoke("stopSmash", 0.375f);
     }
     public void playflash()
     {
            isflashing = true;
         Invoke("stopFlash", 1);
             
+    }
+    public void playShield()
+    {
+        shield.SetActive(true);
+        Invoke("stopShield", 3);
     }
     public void stopSmash()
     {
@@ -377,5 +390,9 @@ public class PlayerController : MonoBehaviour
     public void stopFlash()
     {
         isflashing = false;
+    }
+    public void stopShield()
+    {
+        shield.SetActive(false);
     }
 }

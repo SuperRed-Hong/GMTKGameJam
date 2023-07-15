@@ -22,12 +22,12 @@ public class Impact : Skill{
         player.onStunned();
         yield return new WaitForSeconds(prepareTime);
         player.offStunned();
-        if(manager.DetectDistance()<range){
-
+        player.playSmash();
+        if (manager.DetectDistance()<range){
             player.GetOpponent().ChangeSpeed(0.4f);
             manager.AddLifeTime(new SlowLifeTime(player.GetOpponent(),lifetime));
             player.GetOpponent().isSlowed = true;
-            player.playSmash();
+
         }
     }
     

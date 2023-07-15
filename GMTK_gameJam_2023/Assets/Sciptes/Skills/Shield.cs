@@ -11,6 +11,7 @@ public class Shield : Skill
     public override int UseSkill(){
         player.ChangeSpeed(1.3f);
         player.onInvincible();
+        player.playShield();
         player.GetManager().AddLifeTime(new InvicibleLifeTime(player, duration));
         return 0;
     }

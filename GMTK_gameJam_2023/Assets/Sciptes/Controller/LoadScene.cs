@@ -18,15 +18,15 @@ public class LoadScene : MonoBehaviour
     }
     public void map1()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("MainScene1");
     }
     public void map2()
     {
-        SceneManager.LoadScene("MainScene 3");
+        SceneManager.LoadScene("MainScene2");
     }
     public void map3()
     {
-        SceneManager.LoadScene("MainScene 2");
+        SceneManager.LoadScene("MainScene3");
     }
     public void firstStartmap1()
     {
