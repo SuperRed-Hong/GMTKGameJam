@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour
     public bool isSlowed;
     public GameObject smash;
     public GameObject shield;
+    GameObject nocard1;
+    GameObject nocard2;
     private bool isFalling
     {
         get
@@ -95,6 +97,8 @@ public class PlayerController : MonoBehaviour
         audioManager = GameObject.Find("UIManager").GetComponent<AudioManager>();
         dcard = GameObject.Find("dcard1").GetComponent<Image>();
         pcard = GameObject.Find("pcard1").GetComponent<Image>();
+        nocard1 = GameObject.Find("nocard1");
+        nocard2 = GameObject.Find("nocard2");
         playerController = GetComponent<PlayerController>();
     }
     void Start()
@@ -104,6 +108,7 @@ public class PlayerController : MonoBehaviour
             if (character)
             {
                 giveSkill(dcard.sprite.name);
+                nocard1.SetActive(false);
             }
         }
         if(pcard.sprite != null)
@@ -111,6 +116,7 @@ public class PlayerController : MonoBehaviour
             if (!character)
             {
                 giveSkill(pcard.sprite.name);
+                nocard2.SetActive(false);
             }
         }
         moveSpeed=basicMoveSpeed;
@@ -137,6 +143,7 @@ public class PlayerController : MonoBehaviour
                     currentSkill=null;
                     dcard.sprite = null;
                     dcard.color = new Color(255, 255, 255, 0);
+                    nocard1.SetActive(true);
                 }
             }
         }else{
@@ -158,6 +165,7 @@ public class PlayerController : MonoBehaviour
                     currentSkill=null;
                     pcard.sprite = null;
                     pcard.color = new Color(255, 255, 255, 0);
+                    nocard2.SetActive(true);
                 }
             }
         }
