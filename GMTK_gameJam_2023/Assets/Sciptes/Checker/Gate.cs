@@ -13,19 +13,24 @@ public class Gate : Checker
 
     public Gate(GateController gate, int period, float upBound, float lowBound, bool direction)
     {
-        this.period=period;
-        this.gate=gate;
-        this.direction= direction;
-        enable=true;
-        timeCount=0;
-
+        this.period = period;
+        this.gate = gate;
+        this.direction = direction;
+        enable = true;
+        timeCount = 0;
+        this.upBound = upBound;
+        this.lowBound = lowBound;
     }
-    public override int Check(){
-        if(!enable){
+    public override int Check()
+    {
+        if (!enable)
+        {
             return 0;
         }
-        if(timeCount++>period){
-            if(!direction){
+        if (++timeCount >= period)
+        {
+            if (!direction)
+            {
                 gate.GateUp();
                 direction = true;
 
@@ -36,7 +41,7 @@ public class Gate : Checker
 
                 direction = false;
             }
-            timeCount =0;
+            timeCount = 0;
         }
         else
         {
@@ -59,22 +64,34 @@ public class Gate : Checker
 
         return 1;
     }
-    public override void Reset(){
-        timeCount=0;
+    public override void Reset()
+    {
+        timeCount = 0;
         gate.GateReset();
     }
-    public override void Pause(){
-        enable=false;
+    public override void Pause()
+    {
+        enable = false;
         gate.GateStop();
     }
-    public override void Resume(){
-        enable=true;
-        
-            if(direction){
+    public override void Resume()
+    {
+        enable = true;
+
+        if (direction)
+        {
+            if (gate.transform.position.y < upBound)
+            {
                 gate.GateUp();
-            }else{
+            }
+        }
+        else
+        {
+            if (gate.transform.position.y > lowBound)
+            {
                 gate.GateDown();
             }
-        
+        }
+
     }
 }
