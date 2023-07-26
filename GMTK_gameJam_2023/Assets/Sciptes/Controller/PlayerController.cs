@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
@@ -43,8 +44,8 @@ public class PlayerController : MonoBehaviour
     public bool isSlowed;
     public GameObject smash;
     public GameObject shield;
-    GameObject nocard1;
-    GameObject nocard2;
+    TextMeshProUGUI dcardname;
+    TextMeshProUGUI pcardname;
     private bool isFalling
     {
         get
@@ -97,8 +98,8 @@ public class PlayerController : MonoBehaviour
         audioManager = GameObject.Find("UIManager").GetComponent<AudioManager>();
         dcard = GameObject.Find("dcard1").GetComponent<Image>();
         pcard = GameObject.Find("pcard1").GetComponent<Image>();
-        nocard1 = GameObject.Find("nocard1");
-        nocard2 = GameObject.Find("nocard2");
+        dcardname = GameObject.Find("dcardname").GetComponent<TextMeshProUGUI>();
+        pcardname = GameObject.Find("pcardname").GetComponent<TextMeshProUGUI>();
         playerController = GetComponent<PlayerController>();
     }
     void Start()
@@ -108,7 +109,6 @@ public class PlayerController : MonoBehaviour
             if (character)
             {
                 giveSkill(dcard.sprite.name);
-                nocard1.SetActive(false);
             }
         }
         if(pcard.sprite != null)
@@ -116,7 +116,6 @@ public class PlayerController : MonoBehaviour
             if (!character)
             {
                 giveSkill(pcard.sprite.name);
-                nocard2.SetActive(false);
             }
         }
         moveSpeed=basicMoveSpeed;
@@ -143,7 +142,7 @@ public class PlayerController : MonoBehaviour
                     currentSkill=null;
                     dcard.sprite = null;
                     dcard.color = new Color(255, 255, 255, 0);
-                    nocard1.SetActive(true);
+                    dcardname.text = "您暂时没有卡牌~";
                 }
             }
         }else{
@@ -165,7 +164,7 @@ public class PlayerController : MonoBehaviour
                     currentSkill=null;
                     pcard.sprite = null;
                     pcard.color = new Color(255, 255, 255, 0);
-                    nocard2.SetActive(true);
+                    pcardname.text = "您暂时没有卡牌~";
                 }
             }
         }
@@ -343,33 +342,43 @@ public class PlayerController : MonoBehaviour
         {
             case "金钟罩d":
                 playerController.SetSkill(new Shield(playerController));
+                dcardname.text = "金钟罩";
                 break;
             case "减速d":
                 playerController.SetSkill(new Impact(manager, playerController));
+                dcardname.text = "震荡波";
                 break;
             case "闪现d":
                 playerController.SetSkill(new Flash(playerController));
+                dcardname.text = "闪现";
                 break;
             case "障碍d":
                 playerController.SetSkill(new Barrier(playerController, barrierPrefab));
+                dcardname.text = "超级路障";
                 break;
             case "伸手d":
                 playerController.SetSkill(new Hand(manager, playerController));
+                dcardname.text = "麒麟臂";
                 break;
             case "金钟罩p":
                 playerController.SetSkill(new Shield(playerController));
+                pcardname.text = "金钟罩";
                 break;
             case "减速p":
                 playerController.SetSkill(new Impact(manager, playerController));
+                pcardname.text = "震荡波";
                 break;
             case "闪现p":
                 playerController.SetSkill(new Flash(playerController));
+                pcardname.text = "闪现";
                 break;
             case "障碍p":
                 playerController.SetSkill(new Barrier(playerController, barrierPrefab));
+                pcardname.text = "超级路障";
                 break;
             case "伸手p":
                 playerController.SetSkill(new Hand(manager, playerController));
+                pcardname.text = "麒麟臂";
                 break;
             default:
                 break;
