@@ -102,7 +102,7 @@ public class UIController : MonoBehaviour
 
     public void chooseCard()
     {
-
+        audioManager.AudioPlay(6);
         Instantiate(chooseCardPrefab, canvasRoot);
     }
 

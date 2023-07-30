@@ -369,8 +369,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -602, y: -35}
-  m_SizeDelta: {x: 144.043, y: 148.7419}
+  m_AnchoredPosition: {x: -604.0164, y: -27.951}
+  m_SizeDelta: {x: 275.9325, y: 287.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &98187181
 MonoBehaviour:
@@ -1002,7 +1002,7 @@ RectTransform:
   - {fileID: 1352200019}
   - {fileID: 692525668}
   m_Father: {fileID: 1434995161}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1148,7 +1148,7 @@ RectTransform:
   - {fileID: 928401590}
   - {fileID: 1730735188}
   m_Father: {fileID: 1434995161}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3825,10 +3825,11 @@ MonoBehaviour:
   audios:
   - {fileID: 8300000, guid: 3514b876fba6e3e47ac57e8d25b8b034, type: 3}
   - {fileID: 8300000, guid: 3d5cffc5d332e5e4db5cdd3762ce5966, type: 3}
-  - {fileID: 8300000, guid: 6d9ca06b04f9e3043ae74fb42705139d, type: 3}
+  - {fileID: 8300000, guid: afaf17a970328134c9548c8c4c2b0114, type: 3}
   - {fileID: 8300000, guid: ce52f837f4f86ff41b81551a4be1a506, type: 3}
   - {fileID: 8300000, guid: 2f88ae736735cf74697ce5bdcc6aef7f, type: 3}
   - {fileID: 8300000, guid: 05399848946a094459ca6e78f2af6309, type: 3}
+  - {fileID: 8300000, guid: b471be9b85adf4e4f90be792fac3d373, type: 3}
   musicPlayer: {fileID: 1662309510}
   audioPlayer: {fileID: 1239584794}
   musicSlider: {fileID: 1101236295}
@@ -4419,8 +4420,8 @@ RectTransform:
   - {fileID: 753113547}
   - {fileID: 1771497638}
   - {fileID: 1169164734}
-  - {fileID: 266636633}
   - {fileID: 423990987}
+  - {fileID: 266636633}
   m_Father: {fileID: 1662309509}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4858,7 +4859,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 874dd22020e5b894085026a3ea8e3f74, type: 3}
   - {fileID: 8300000, guid: 9048750284f353347aab2daef526b13d, type: 3}
   - {fileID: 8300000, guid: 28cdd14d01df20a4f8bea89e148eb33d, type: 3}
-  - {fileID: 8300000, guid: fe400dfec7a5e2143a3009c1dae9ccbb, type: 3}
+  - {fileID: 8300000, guid: d07d41a6d28a30e4c901b9bcf70319d6, type: 3}
   audios:
   - {fileID: 8300000, guid: 3514b876fba6e3e47ac57e8d25b8b034, type: 3}
   - {fileID: 8300000, guid: 3d5cffc5d332e5e4db5cdd3762ce5966, type: 3}
@@ -5117,8 +5118,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 611, y: -36}
-  m_SizeDelta: {x: 119.8635, y: 145.19}
+  m_AnchoredPosition: {x: 607.1819, y: -39.09498}
+  m_SizeDelta: {x: 206.6097, y: 265.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1773375545
 MonoBehaviour:

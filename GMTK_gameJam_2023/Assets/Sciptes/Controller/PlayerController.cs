@@ -191,6 +191,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "OneWayPlatform")
+        {
+            currentOneWayPlayform = collision.gameObject;
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
 
@@ -200,7 +207,12 @@ public class PlayerController : MonoBehaviour
             if ((collision.gameObject.tag == "OneWayPlatform" || collision.gameObject.tag == "Platform")  /*gameObject.transform.position.y - collision.gameObject.transform.position.y > 0 */ && rb2D.velocity.y == 0)
             {
                 isJumping = false;
-                currentOneWayPlayform = collision.gameObject;
+                if(collision.gameObject.tag == "OneWayPlatform")
+                {
+                    currentOneWayPlayform = collision.gameObject;
+
+                }
+                Debug.Log(collision.gameObject.tag);
             }
         }
         
