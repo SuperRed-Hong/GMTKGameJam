@@ -2505,6 +2505,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[342].second.m_TileSpriteIndex
       value: 69
       objectReference: {fileID: 0}
+    - target: {fileID: 236547823351224451, guid: c8404d7f921d7734bb00ea4eb779cf7f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 764648399346523365, guid: c8404d7f921d7734bb00ea4eb779cf7f, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size
       value: 18
@@ -4253,6 +4257,14 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[1].Array.data[12].Y
       value: 55625000
       objectReference: {fileID: 0}
+    - target: {fileID: 901975633093281256, guid: c8404d7f921d7734bb00ea4eb779cf7f, type: 3}
+      propertyPath: m_SurfaceArc
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 2717469377339742709, guid: c8404d7f921d7734bb00ea4eb779cf7f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2743663007226994654, guid: c8404d7f921d7734bb00ea4eb779cf7f, type: 3}
       propertyPath: m_Tiles.Array.size
       value: 292
@@ -5924,6 +5936,14 @@ PrefabInstance:
     - target: {fileID: 3863271982470049505, guid: c8404d7f921d7734bb00ea4eb779cf7f, type: 3}
       propertyPath: m_Tiles.Array.data[41].second.m_TileSpriteIndex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3920734864580422729, guid: c8404d7f921d7734bb00ea4eb779cf7f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835108928554290108, guid: c8404d7f921d7734bb00ea4eb779cf7f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8404d7f921d7734bb00ea4eb779cf7f, type: 3}

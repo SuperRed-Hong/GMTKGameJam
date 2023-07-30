@@ -18,12 +18,12 @@ EditorBuildSettings:
     path: Assets/Resources/Scenes/PatientWin.unity
     guid: 377add55e59d58243a81619ffca27759
   - enabled: 1
-    path: Assets/Resources/Scenes/Map/MainScene3.unity
-    guid: 4f1690919f5ac6142b21518a9d2833e8
-  - enabled: 1
     path: Assets/Resources/Scenes/Map/MainScene1.unity
     guid: e50d3c40fce3fae4290cda8c3d8bbd06
   - enabled: 1
     path: Assets/Resources/Scenes/Map/MainScene2.unity
     guid: c45c0a978892a074a8d69a7ff5228594
+  - enabled: 1
+    path: Assets/Resources/Scenes/Map/MainScene3.unity
+    guid: 4f1690919f5ac6142b21518a9d2833e8
   m_configObjects: {}

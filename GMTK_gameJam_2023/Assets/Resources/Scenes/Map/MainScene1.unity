@@ -2620,6 +2620,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 959192668830652450, guid: 2b565696ebd4fb9478ab2c97fc29d6a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 1696812777075007911, guid: 2b565696ebd4fb9478ab2c97fc29d6a5, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.data[11].Array.size
       value: 4
@@ -2882,7 +2886,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2762636794915363111, guid: 2b565696ebd4fb9478ab2c97fc29d6a5, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244452693896491060, guid: 2b565696ebd4fb9478ab2c97fc29d6a5, type: 3}
+      propertyPath: m_SurfaceArc
+      value: 170
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136589313518050873, guid: 2b565696ebd4fb9478ab2c97fc29d6a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4362183472641829592, guid: 2b565696ebd4fb9478ab2c97fc29d6a5, type: 3}
       propertyPath: period
@@ -3398,7 +3410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8624795384718442285, guid: 2b565696ebd4fb9478ab2c97fc29d6a5, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b565696ebd4fb9478ab2c97fc29d6a5, type: 3}

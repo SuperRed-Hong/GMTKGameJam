@@ -248,7 +248,7 @@ public class PlayerController : MonoBehaviour
         {
             CompositeCollider2D platformCollider = currentOneWayPlayform.GetComponent<CompositeCollider2D>();
             Physics2D.IgnoreCollision(playerCollider, platformCollider);
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.2f);
             Physics2D.IgnoreCollision(playerCollider, platformCollider, false);
         }
         else
