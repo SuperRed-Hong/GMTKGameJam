@@ -21,7 +21,7 @@ public class TrapController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            //Debug.Log("222");
+            Debug.Log("Trapped:"+other.gameObject.name);
             PlayerController playerCaught = other.gameObject.GetComponent<PlayerController>();
             playerCaught.onStunned();
             //playerCaught.enabled=false;
