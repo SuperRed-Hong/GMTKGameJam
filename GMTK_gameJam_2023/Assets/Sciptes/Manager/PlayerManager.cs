@@ -6,6 +6,9 @@ public class PlayerManager : MonoBehaviour
 {
     [SerializeField] private GameObject player1Prefab, player2Prefab;
     [SerializeField] private Transform player1SpawnPoint, player2SpawnPoint;
+    [SerializeField] private Transform trapPoints;
+    [SerializeField] private GameObject trapPrefeb;
+    [SerializeField] private int trapPointNum;
     //private ScoreManager scoreManager;
     private UIController uiController;
     private PlayerController player1;//医生
@@ -48,6 +51,8 @@ public class PlayerManager : MonoBehaviour
     {
         player1 = Instantiate(player1Prefab, player1SpawnPoint.position, player1SpawnPoint.rotation).GetComponent<PlayerController>();
         player2 = Instantiate(player2Prefab, player2SpawnPoint.position, player2SpawnPoint.rotation).GetComponent<PlayerController>();
+        GameObject trap = Instantiate(trapPrefeb, trapPoints.GetChild(Random.Range(0,trapPointNum)).transform.position, trapPoints.rotation);
+        trap.transform.SetParent(trapPoints);
         player1.transform.SetParent(GameObject.Find("PlayGround").transform);
         player2.transform.SetParent(GameObject.Find("PlayGround").transform);
         player1.SetManager(this);

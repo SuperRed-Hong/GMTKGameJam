@@ -5947,6 +5947,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8404d7f921d7734bb00ea4eb779cf7f, type: 3}
+--- !u!4 &60127693 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3069277260638705275, guid: c8404d7f921d7734bb00ea4eb779cf7f, type: 3}
+  m_PrefabInstance: {fileID: 60127692}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &123030974
 GameObject:
   m_ObjectHideFlags: 0
@@ -8115,6 +8120,9 @@ MonoBehaviour:
   player2Prefab: {fileID: 4079315856628368386, guid: 63369c5e167012a4e8ed272db29fc56b, type: 3}
   player1SpawnPoint: {fileID: 1278170069}
   player2SpawnPoint: {fileID: 1321473822}
+  trapPoints: {fileID: 60127693}
+  trapPrefeb: {fileID: 8239133464725031042, guid: 18f5c192fb48e494dbd57de55d424af5, type: 3}
+  trapPointNum: 3
 --- !u!114 &1239584797
 MonoBehaviour:
   m_ObjectHideFlags: 0

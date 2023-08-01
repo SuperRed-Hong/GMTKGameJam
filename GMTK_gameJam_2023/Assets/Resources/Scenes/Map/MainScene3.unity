@@ -2105,6 +2105,9 @@ MonoBehaviour:
   player2Prefab: {fileID: 4079315856628368386, guid: 63369c5e167012a4e8ed272db29fc56b, type: 3}
   player1SpawnPoint: {fileID: 1278170069}
   player2SpawnPoint: {fileID: 1321473822}
+  trapPoints: {fileID: 1849435828}
+  trapPrefeb: {fileID: 8239133464725031042, guid: 18f5c192fb48e494dbd57de55d424af5, type: 3}
+  trapPointNum: 3
 --- !u!114 &1239584797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3555,8 +3558,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 301809432347307165, guid: ec4f4e580d455d2062d497e6f7262586, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 377775070934464725, guid: ec4f4e580d455d2062d497e6f7262586, type: 3}
       propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136297576125849717, guid: ec4f4e580d455d2062d497e6f7262586, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1136297576125849717, guid: ec4f4e580d455d2062d497e6f7262586, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3386489858184532797, guid: ec4f4e580d455d2062d497e6f7262586, type: 3}
@@ -4781,6 +4796,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec4f4e580d455d2062d497e6f7262586, type: 3}
+--- !u!4 &1849435828 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9031037067505004100, guid: ec4f4e580d455d2062d497e6f7262586, type: 3}
+  m_PrefabInstance: {fileID: 1849435827}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1998868081
 GameObject:
   m_ObjectHideFlags: 0
