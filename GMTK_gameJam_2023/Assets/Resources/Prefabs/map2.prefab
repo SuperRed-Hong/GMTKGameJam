@@ -11557,7 +11557,7 @@ GameObject:
   - component: {fileID: 2302038414906900379}
   - component: {fileID: 7996510095162298376}
   m_Layer: 7
-  m_Name: Plate
+  m_Name: plate
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14592,7 +14592,7 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
