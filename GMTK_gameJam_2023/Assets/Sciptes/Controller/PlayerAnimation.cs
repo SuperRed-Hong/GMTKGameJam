@@ -19,6 +19,7 @@ public class PlayerAnimation : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(gameObject.GetComponent<PlayerController>().isSlowed);
         SetAnimation();
     }
     public void SetAnimation()
@@ -28,5 +29,6 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetBool("isGround", physicsCheck.isGround);
         animator.SetBool("isSlow", gameObject.GetComponent<PlayerController>().isSlowed);
         animator.SetBool("isflashing", gameObject.GetComponent<PlayerController>().isflashing);
+        animator.SetBool("trapStun", gameObject.GetComponent<PlayerController>().trapStun);
     }
 }

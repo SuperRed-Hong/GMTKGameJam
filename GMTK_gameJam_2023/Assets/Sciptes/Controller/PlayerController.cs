@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private bool _isStunned = false;
     private bool _isCollision;
     private bool _isInvincible=false;
+    private bool _isTrapStun = false;
     private PhysicsCheck physicsCheck;
 
     public AudioManager audioManager;
@@ -70,6 +71,18 @@ public class PlayerController : MonoBehaviour
         {
             _isJumping = value;
             
+        }
+    }
+    public bool trapStun
+    {
+        get
+        {
+            return _isTrapStun;
+        }
+        private set
+        {
+            _isTrapStun = value;
+
         }
     }
 
@@ -128,14 +141,14 @@ public class PlayerController : MonoBehaviour
             moveVertical = Input.GetAxisRaw("Vertical1");
             if (Input.GetKeyDown(KeyCode.S))
             {
-                if (!_isStunned && currentOneWayPlayform != null && currentOneWayPlayform.tag =="OneWayPlatform")
+                if (!_isStunned && !_isTrapStun && currentOneWayPlayform != null && currentOneWayPlayform.tag =="OneWayPlatform")
                 {
                     StartCoroutine(DisableCollision());
                 }
             }
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (!_isStunned && currentSkill != null)
+                if (!_isStunned && !_isTrapStun && currentSkill != null)
                 {
                     audioManager.AudioPlay(2);
                     currentSkill.UseSkill();
@@ -150,14 +163,14 @@ public class PlayerController : MonoBehaviour
             moveVertical = Input.GetAxisRaw("Vertical2");
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                if (!_isStunned&&currentOneWayPlayform != null && currentOneWayPlayform.tag != "Platform")
+                if (!_isStunned && !_isTrapStun && currentOneWayPlayform != null && currentOneWayPlayform.tag != "Platform")
                 {
                     StartCoroutine(DisableCollision());
                 }
             }
             if (Input.GetKeyDown(KeyCode.RightControl))
             {
-                if (!_isStunned && currentSkill != null)
+                if (!_isStunned && !_isTrapStun && currentSkill != null)
                 {
                     audioManager.AudioPlay(2);
                     currentSkill.UseSkill();
@@ -173,7 +186,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (!_isStunned) {
+        if (!_isStunned && !_isTrapStun) {
             rb2D.velocity = new Vector2(moveHorizontal * moveSpeed * Time.deltaTime, rb2D.velocity.y);
             isRunning = true;
 
@@ -212,7 +225,7 @@ public class PlayerController : MonoBehaviour
                     currentOneWayPlayform = collision.gameObject;
 
                 }
-                Debug.Log(collision.gameObject.tag);
+                //Debug.Log(collision.gameObject.tag);
             }
         }
         
@@ -292,6 +305,18 @@ public class PlayerController : MonoBehaviour
     {
         _isStunned = false;
     }
+    public void onTrapStunned()
+    {
+        audioManager.AudioPlay(7);
+        if (!_isInvincible)
+        {
+            _isTrapStun = true;
+        }
+    }
+    public void offTrapStunned()
+    {
+        _isTrapStun = false;
+    }
     public void onInvincible()
     {
         _isInvincible = true;
@@ -353,7 +378,10 @@ public class PlayerController : MonoBehaviour
         switch (cardName)
         {
             case "金钟罩d":
-                playerController.SetSkill(new Shield(playerController));
+                if (!GetRole())
+                {
+                    playerController.SetSkill(new Shield(playerController));
+                }
                 dcardname.text = "金钟罩";
                 break;
             case "减速d":
@@ -369,11 +397,17 @@ public class PlayerController : MonoBehaviour
                 dcardname.text = "超级路障";
                 break;
             case "伸手d":
-                playerController.SetSkill(new Hand(manager, playerController));
+                if (GetRole())
+                {
+                    playerController.SetSkill(new Hand(manager, playerController));
+                }
                 dcardname.text = "麒麟臂";
                 break;
             case "金钟罩p":
-                playerController.SetSkill(new Shield(playerController));
+                if (!GetRole())
+                {
+                    playerController.SetSkill(new Shield(playerController));
+                }
                 pcardname.text = "金钟罩";
                 break;
             case "减速p":
@@ -389,7 +423,10 @@ public class PlayerController : MonoBehaviour
                 pcardname.text = "超级路障";
                 break;
             case "伸手p":
-                playerController.SetSkill(new Hand(manager, playerController));
+                if (GetRole())
+                {
+                    playerController.SetSkill(new Hand(manager, playerController));
+                }
                 pcardname.text = "麒麟臂";
                 break;
             default:

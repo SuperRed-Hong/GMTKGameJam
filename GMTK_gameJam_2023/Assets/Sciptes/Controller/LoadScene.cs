@@ -7,10 +7,12 @@ public class LoadScene : MonoBehaviour
 {
     AudioManager audioManager;
     public GameObject comic1Prefab;
+    GameObject flowerGenerater;
 
     private void Start()
     {
         audioManager = GameObject.Find("Canvas").GetComponent<AudioManager>();
+        flowerGenerater = GameObject.Find("FlowerGenerater");
     }
     public void back()
     {
@@ -30,6 +32,10 @@ public class LoadScene : MonoBehaviour
     }
     public void firstStartmap1()
     {
+        if (flowerGenerater != null)
+        {
+            Destroy(flowerGenerater);
+        }
         Invoke("comic1Play", 0.5f);
         Invoke("map1", 4.5f);
     }

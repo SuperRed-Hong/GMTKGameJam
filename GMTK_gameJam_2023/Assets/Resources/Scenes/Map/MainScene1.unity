@@ -7599,6 +7599,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2f88ae736735cf74697ce5bdcc6aef7f, type: 3}
   - {fileID: 8300000, guid: 05399848946a094459ca6e78f2af6309, type: 3}
   - {fileID: 8300000, guid: b471be9b85adf4e4f90be792fac3d373, type: 3}
+  - {fileID: 8300000, guid: ac8ece03952526f42a09657500141f26, type: 3}
   musicPlayer: {fileID: 1662309510}
   audioPlayer: {fileID: 1239584794}
   musicSlider: {fileID: 1101236295}

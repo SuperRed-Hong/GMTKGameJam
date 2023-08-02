@@ -23,11 +23,11 @@ public class TrapController : MonoBehaviour
         {
             Debug.Log("Trapped:"+other.gameObject.name);
             PlayerController playerCaught = other.gameObject.GetComponent<PlayerController>();
-            playerCaught.onStunned();
+            playerCaught.onTrapStunned();
             //playerCaught.enabled=false;
             yield return new WaitForSeconds(traptime);
             //other.gameObject.GetComponent<PlayerController>().enabled=true;
-            playerCaught.offStunned();
+            playerCaught.offTrapStunned();
             Destroy(this.gameObject);
         }
     }
