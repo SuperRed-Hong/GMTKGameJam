@@ -6,32 +6,20 @@ public class Flash : Skill
 {
     public Flash(PlayerController player){
         this.player=player;
-        
-        
     }
     public override int UseSkill(){
-        if(player.getMoveHorizontal()!=0&&player.getMoveVertical()!=0){
-            player.transform.Translate(new Vector2(player.getMoveHorizontal()*2.5f, player.getMoveVertical()*2.5f));
-            player.playflash();
-
-            return 1;
-
+        Vector2 moveDirection=new Vector2(player.getMoveHorizontal(), player.getMoveVertical()).normalized;
+        float moveDistance=0f;
+        RaycastHit2D hit1 = Physics2D.Raycast(((Vector2)player.transform.position)+moveDirection*3f, moveDirection);
+        if(hit1.fraction==0f){
+            RaycastHit2D hit2 = Physics2D.Raycast(player.transform.position, moveDirection);
+            moveDistance=hit2.distance;
+        }else{
+            moveDistance=3f;
         }
-        if (player.getMoveHorizontal()!=0){
-            player.transform.Translate(new Vector2(player.getMoveHorizontal()*2f,0f));
-            player.playflash();
-
-            return 1;
-        }
-        if(player.getMoveVertical()!=0){
-            player.transform.Translate(new Vector2(0f,player.getMoveVertical()*2f));
-            player.playflash();
-
-            return 1;
-        }
+        player.transform.Translate(moveDirection*moveDistance);
         player.playflash();
-
-        return 0;
+        return 1;
     }
     
 }

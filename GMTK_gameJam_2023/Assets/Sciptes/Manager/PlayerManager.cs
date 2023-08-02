@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour
     private UIController uiController;
     private PlayerController player1;//医生
     private PlayerController player2;//病人
+    private GameObject trap;//当前轮的陷阱
     private List<Checker> checker_list;
     private bool cacher;//记录当前抓人者
     private int doctorScore;
@@ -51,7 +52,7 @@ public class PlayerManager : MonoBehaviour
     {
         player1 = Instantiate(player1Prefab, player1SpawnPoint.position, player1SpawnPoint.rotation).GetComponent<PlayerController>();
         player2 = Instantiate(player2Prefab, player2SpawnPoint.position, player2SpawnPoint.rotation).GetComponent<PlayerController>();
-        GameObject trap = Instantiate(trapPrefeb, trapPoints.GetChild(Random.Range(0,trapPointNum)).transform.position, trapPoints.rotation);
+        trap = Instantiate(trapPrefeb, trapPoints.GetChild(Random.Range(0,trapPointNum)).transform.position, trapPoints.rotation);
         trap.transform.SetParent(trapPoints);
         player1.transform.SetParent(GameObject.Find("PlayGround").transform);
         player2.transform.SetParent(GameObject.Find("PlayGround").transform);
@@ -141,6 +142,9 @@ public class PlayerManager : MonoBehaviour
         ResetCheck();
         player1.onStunned();
         player2.onStunned();
+        if(trap){
+            Destroy(trap);
+        }
         yield return new WaitForSeconds(1f);
         Destroy(player1.gameObject);
         Destroy(player2.gameObject);
