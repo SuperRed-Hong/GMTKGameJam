@@ -16,8 +16,8 @@ public class PlayerManager : MonoBehaviour
     private GameObject trap;//当前轮的陷阱
     private List<Checker> checker_list;
     private bool cacher;//记录当前抓人者
-    private int doctorScore;
-    private int patientScore;
+    private int doctorScore = 0;
+    private int patientScore = 0;
     private bool winner;
     private Destroy lifeTimeChecker;
     private bool touched;
@@ -194,6 +194,7 @@ public class PlayerManager : MonoBehaviour
         {
             uiController.SetDoctorScore(doctorScore);
             uiController.SetPatientScore(patientScore);
+            uiController.SetRoundNumber(doctorScore + patientScore);
             uiController.score();
         }
 

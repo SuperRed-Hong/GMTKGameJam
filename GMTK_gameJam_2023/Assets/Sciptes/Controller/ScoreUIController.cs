@@ -7,6 +7,7 @@ public class ScoreUIController : MonoBehaviour
 {
     public TextMeshProUGUI doctor;
     public TextMeshProUGUI patient;
+    public TextMeshProUGUI round;
 
     public void SetDoctor(string Score)
     {
@@ -15,5 +16,9 @@ public class ScoreUIController : MonoBehaviour
     public void SetPatient(string Score)
     {
         patient.text = Score;
+    }
+    public void SetRound(string RoundNumber)
+    {
+        round.text = RoundNumber;
     }
 }

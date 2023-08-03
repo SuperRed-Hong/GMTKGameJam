@@ -18,7 +18,7 @@ public class Flowers : MonoBehaviour
 	}
 	void Update()
 	{
-		flowerGenerater = GameObject.Find("FlowerGenerater");
+		flowerGenerater = GameObject.Find("FlowerGenerater(Clone)");
 		time -= Time.deltaTime;
 		if(time <= 0)
         {

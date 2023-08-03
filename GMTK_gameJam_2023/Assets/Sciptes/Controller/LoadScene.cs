@@ -12,7 +12,7 @@ public class LoadScene : MonoBehaviour
     private void Start()
     {
         audioManager = GameObject.Find("Canvas").GetComponent<AudioManager>();
-        flowerGenerater = GameObject.Find("FlowerGenerater");
+        flowerGenerater = GameObject.Find("FlowerGenerater(Clone)");
     }
     public void back()
     {

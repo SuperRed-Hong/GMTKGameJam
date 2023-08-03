@@ -24,7 +24,7 @@ public class UIController : MonoBehaviour
     public Transform canvasRoot;
     public TextMeshProUGUI doctorScore;
     public TextMeshProUGUI patientScore;
-    public TextMeshProUGUI turnNumber;
+    private string roundNumber;
     public GameObject ContinueButton;
 
     private bool firstplay = true;
@@ -81,6 +81,7 @@ public class UIController : MonoBehaviour
         ScoreUIController  textscore= Instantiate(scorePrefab, canvasRoot).GetComponent<ScoreUIController>();
         textscore.SetDoctor(doctorScore.text);
         textscore.SetPatient(patientScore.text);
+        textscore.SetRound(roundNumber);
         if (firstplay)
         {
             firstplay = false;
@@ -130,6 +131,28 @@ public class UIController : MonoBehaviour
     public void SetPatientScore(int Score)
     {
         patientScore.text = Score.ToString();
+    }
+    public void SetRoundNumber(int TotalScore)
+    {
+        switch (TotalScore)
+        {
+            case 1:
+                roundNumber = "回合一";
+                break;
+            case 2:
+                roundNumber = "回合二";
+                break;
+            case 3:
+                roundNumber = "回合三";
+                break;
+            case 4:
+                roundNumber = "回合四";
+                break;
+            default:
+                break;
+        }
+
+
     }
 
 }

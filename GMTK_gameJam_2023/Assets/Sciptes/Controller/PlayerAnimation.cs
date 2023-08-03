@@ -19,7 +19,6 @@ public class PlayerAnimation : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(gameObject.GetComponent<PlayerController>().isSlowed);
         SetAnimation();
     }
     public void SetAnimation()
