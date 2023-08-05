@@ -2509,6 +2509,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 303177680042474704, guid: c8404d7f921d7734bb00ea4eb779cf7f, type: 3}
+      propertyPath: speed
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 764648399346523365, guid: c8404d7f921d7734bb00ea4eb779cf7f, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size
       value: 18
@@ -4264,6 +4268,10 @@ PrefabInstance:
     - target: {fileID: 1216400914843910287, guid: c8404d7f921d7734bb00ea4eb779cf7f, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1682730816993389862, guid: c8404d7f921d7734bb00ea4eb779cf7f, type: 3}
+      propertyPath: speed
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2717469377339742709, guid: c8404d7f921d7734bb00ea4eb779cf7f, type: 3}
       propertyPath: m_SortingOrder
@@ -11088,7 +11096,6 @@ MonoBehaviour:
   canvasRoot: {fileID: 1662309509}
   doctorScore: {fileID: 1571156372}
   patientScore: {fileID: 1227206814}
-  roundNumber: {fileID: 0}
   ContinueButton: {fileID: 0}
   CountDown_tet: {fileID: 302529771}
   audioManager: {fileID: 267698610915477277, guid: 7f1aee59cbfebb84e8a7cb8493c045e7, type: 3}
@@ -11209,7 +11216,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 58128bc468b13374eb38320f12fd9eb0, type: 3}
   audios:
   - {fileID: 8300000, guid: 3514b876fba6e3e47ac57e8d25b8b034, type: 3}
-  - {fileID: 8300000, guid: 3d5cffc5d332e5e4db5cdd3762ce5966, type: 3}
+  - {fileID: 8300000, guid: 148694ded5af06a4c8185605ed6d9513, type: 3}
   - {fileID: 8300000, guid: afaf17a970328134c9548c8c4c2b0114, type: 3}
   - {fileID: 8300000, guid: ce52f837f4f86ff41b81551a4be1a506, type: 3}
   - {fileID: 8300000, guid: 2f88ae736735cf74697ce5bdcc6aef7f, type: 3}
