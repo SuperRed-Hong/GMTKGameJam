@@ -13,7 +13,6 @@ public class UIController : MonoBehaviour
     public Camera mainCamera;
     public bool isStop;
     [Header("Prefabs")]
-    public PopUpUI popUpPrefab; //结束弹窗
     public GameObject stopPrefab;   // 暂停弹窗
     public GameObject scorePrefab; //分数弹窗
     public GameObject chooseCardPrefab;   // 抽卡弹窗

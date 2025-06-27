@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour
     private bool winner;
     private Destroy lifeTimeChecker;
     private bool touched;
+    private CameraFollow cameraFollow;
 
     //AudioManager audioManager;
 
@@ -33,6 +34,7 @@ public class PlayerManager : MonoBehaviour
         touched=false;
         //scoreManager=GameObject.Find("GameManager").GetComponent<ScoreManager>();
         uiController = GetComponent<UIController>();
+        cameraFollow = GameObject.Find("Main Camera").GetComponent<CameraFollow>();
         //audioManager = GameObject.Find("Canvas").GetComponent<AudioManager>();
     }
     // Start is called before the first frame update
@@ -50,8 +52,12 @@ public class PlayerManager : MonoBehaviour
     }
     void SpawnPlayer()
     {
-        player1 = Instantiate(player1Prefab, player1SpawnPoint.position, player1SpawnPoint.rotation).GetComponent<PlayerController>();
-        player2 = Instantiate(player2Prefab, player2SpawnPoint.position, player2SpawnPoint.rotation).GetComponent<PlayerController>();
+        GameObject p1 = Instantiate(player1Prefab, player1SpawnPoint.position, player1SpawnPoint.rotation);
+        GameObject p2 = Instantiate(player2Prefab, player2SpawnPoint.position, player2SpawnPoint.rotation);
+        player1 = p1.GetComponent<PlayerController>();
+        player2 = p2.GetComponent<PlayerController>();
+        cameraFollow.followObjects.Add(p1);
+        cameraFollow.followObjects.Add(p2);
         trap = Instantiate(trapPrefeb, trapPoints.GetChild(Random.Range(0,trapPointNum)).transform.position, trapPoints.rotation);
         trap.transform.SetParent(trapPoints);
         player1.transform.SetParent(GameObject.Find("PlayGround").transform);
@@ -60,8 +66,8 @@ public class PlayerManager : MonoBehaviour
         player2.SetManager(this);
         player1.SetOpponent(player2);
         player2.SetOpponent(player1);
-        player1.GetArm().SetPlayer(player2.transform);
-        player2.GetArm().SetPlayer(player1.transform);
+        //player1.GetArm().SetPlayer(player2.transform);
+        //player2.GetArm().SetPlayer(player1.transform);
         player1.SetRole(cacher);
         player2.SetRole(!cacher);
     }
@@ -150,9 +156,9 @@ public class PlayerManager : MonoBehaviour
         Destroy(player2.gameObject);
         //checker_list.Clear();
     }
-    public void whoWin(bool role)
+    public void whoWin()
     {
-        winner= role == cacher;
+        winner = !player1.GetRole() == cacher;
     }
     public bool returnWinner()
     {
@@ -169,16 +175,16 @@ public class PlayerManager : MonoBehaviour
     public bool GetTouched(){
         return touched;
     }
-    public void EndGame(bool role)
+    public void EndGame()
     {
-        //Debug.Log(role);
         StartCoroutine(DestroyPlayers());
-        //audioManager.MusicChange(2);
-        if (role == cacher)
+        if (!player1.GetRole())
         {
             ++doctorScore;
         }
-        else
+        //Debug.Log(role);
+        //audioManager.MusicChange(2);
+        if (!player2.GetRole())
         {
             ++patientScore;
         }
@@ -197,12 +203,12 @@ public class PlayerManager : MonoBehaviour
             uiController.SetRoundNumber(doctorScore + patientScore);
             uiController.score();
         }
-
+        cameraFollow.followObjects.Clear();
     }
     public void StartGame()
     {
         cacher = !cacher;
-        touched=false;
+        //touched=false;
         SpawnPlayer();
         //AddChecker(new TimeCountDown(this));
         ResumeCheck();

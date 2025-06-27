@@ -8,6 +8,7 @@ public class LoadScene : MonoBehaviour
     AudioManager audioManager;
     public GameObject comic1Prefab;
     GameObject flowerGenerater;
+    private GameObject comic;
 
     private void Start()
     {
@@ -51,8 +52,11 @@ public class LoadScene : MonoBehaviour
     }
     public void comic1Play()
     {
-        Instantiate(comic1Prefab, gameObject.transform);
-        audioManager.MusicChange(4);
+        if(comic == null)
+        {
+            comic = Instantiate(comic1Prefab, gameObject.transform);
+            audioManager.MusicChange(4);
+        }
     }
 
     public void exit()

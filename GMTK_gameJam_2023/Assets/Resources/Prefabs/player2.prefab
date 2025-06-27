@@ -203,9 +203,10 @@ GameObject:
   - component: {fileID: -9038320898490225348}
   - component: {fileID: 8822005092673943446}
   - component: {fileID: 5944975661002489912}
-  - component: {fileID: 7088456664303720880}
   - component: {fileID: 808892423022517617}
   - component: {fileID: 8146464903757501475}
+  - component: {fileID: 5141611394387391244}
+  - component: {fileID: 3061430116216381927}
   m_Layer: 6
   m_Name: player2
   m_TagString: Player
@@ -273,7 +274,7 @@ SpriteRenderer:
   m_SortingLayerID: -1959783743
   m_SortingLayer: 2
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: d9856b2b210c47a4394d09a56361a1db, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c2d0979afb6f43d45b2181aaef4e0ad1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -337,9 +338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c22bedc7583586a45860481a5c62ff2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCollider: {fileID: 7088456664303720880}
+  playerCollider: {fileID: 3061430116216381927}
   arm: {fileID: 3161923294051965803}
-  barrierPrefab: {fileID: 207317277508514824, guid: 4d045b7dbaa344f49b0421aa08c7c0ce, type: 3}
   basicMoveSpeed: 600
   jumpForce: 30
   character: 0
@@ -363,25 +363,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06607976, y: -0.8807992}
-  m_Size: {x: 0.44348145, y: 0.1386533}
+  m_Offset: {x: -0.01, y: -0.8807992}
+  m_Size: {x: 1.02, y: 0.1386533}
   m_Direction: 1
---- !u!70 &7088456664303720880
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4079315856628368386}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 5b71707dc5aef4044824c7721725164f, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0396046, y: -0.1069237}
-  m_Size: {x: 0.8276407, y: 1.565619}
-  m_Direction: 0
 --- !u!114 &808892423022517617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,9 +383,9 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
-  bottomOffset: {x: -0.3, y: -0.9}
-  bottomOffset1: {x: -0.11, y: -0.9}
-  bottomOffset2: {x: 0.07, y: -0.9}
+  bottomOffset: {x: -0.31, y: -0.9}
+  bottomOffset1: {x: 0.04, y: -0.9}
+  bottomOffset2: {x: 0.31, y: -0.9}
   aspectRatio: 0
 --- !u!114 &8146464903757501475
 MonoBehaviour:
@@ -415,6 +399,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a7bf791e63cd8846a0a3e64cd6b79e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5141611394387391244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4079315856628368386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db819a038f4ca8a45a9ff8487a06e66f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrierPrefab: {fileID: 207317277508514824, guid: 4d045b7dbaa344f49b0421aa08c7c0ce, type: 3}
+--- !u!61 &3061430116216381927
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4079315856628368386}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.17}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.7, y: 1.8}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 1.47}
+  m_EdgeRadius: 0
 --- !u!1 &5727759417336166909
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +455,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2103249030548888707
 Transform:
   m_ObjectHideFlags: 0

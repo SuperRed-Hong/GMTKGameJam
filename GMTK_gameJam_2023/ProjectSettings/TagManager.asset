@@ -9,6 +9,7 @@ TagManager:
   - Gate
   - elevator
   - Card
+  - wall
   layers:
   - Default
   - TransparentFX

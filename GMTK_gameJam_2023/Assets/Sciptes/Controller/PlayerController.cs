@@ -4,21 +4,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
     private GameObject currentOneWayPlayform;
-    [SerializeField] private CapsuleCollider2D playerCollider;
+    [SerializeField] private BoxCollider2D playerCollider;
     [SerializeField] private ArmController arm;
     private PlayerController opponent;
-    private PlayerController playerController;
     private PlayerManager manager;
     private Rigidbody2D rb2D;
-    Animator animator;
-    Image dcard;
-    Image pcard;
-    public GameObject barrierPrefab;
-
     [SerializeField] private float basicMoveSpeed;
     private float moveSpeed;
     [SerializeField] private float jumpForce;
@@ -27,7 +22,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private bool character;
     private bool role;
-
     private bool _isJumping = false;
     private bool _isFalling = false;
     private bool _isRunning = false;
@@ -45,8 +39,10 @@ public class PlayerController : MonoBehaviour
     public bool isSlowed;
     public GameObject smash;
     public GameObject shield;
-    TextMeshProUGUI dcardname;
-    TextMeshProUGUI pcardname;
+    private bool onTheWall = false;
+    private bool leftWall = false;
+    private bool rightWall = false;
+    public int playerNumber;
     private bool isFalling
     {
         get
@@ -106,42 +102,22 @@ public class PlayerController : MonoBehaviour
         isflashing = false;
         physicsCheck = GetComponent<PhysicsCheck>();
         rb2D = gameObject.GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
         role=character;
         audioManager = GameObject.Find("UIManager").GetComponent<AudioManager>();
-        dcard = GameObject.Find("dcard1").GetComponent<Image>();
-        pcard = GameObject.Find("pcard1").GetComponent<Image>();
-        dcardname = GameObject.Find("dcardname").GetComponent<TextMeshProUGUI>();
-        pcardname = GameObject.Find("pcardname").GetComponent<TextMeshProUGUI>();
-        playerController = GetComponent<PlayerController>();
+        moveSpeed = basicMoveSpeed;
+       
     }
-    void Start()
-    {
-        if (dcard.sprite != null)
-        {
-            if (character)
-            {
-                giveSkill(dcard.sprite.name);
-            }
-        }
-        if(pcard.sprite != null)
-        {
-            if (!character)
-            {
-                giveSkill(pcard.sprite.name);
-            }
-        }
-        moveSpeed=basicMoveSpeed;
 
-    }
+
     void Update()
     {
-        if(character){
+        if (character)
+        {
             moveHorizontal = Input.GetAxisRaw("Horizontal1");
             moveVertical = Input.GetAxisRaw("Vertical1");
             if (Input.GetKeyDown(KeyCode.S))
             {
-                if (!_isStunned && !_isTrapStun && currentOneWayPlayform != null && currentOneWayPlayform.tag =="OneWayPlatform")
+                if (!_isStunned && !_isTrapStun && currentOneWayPlayform != null && currentOneWayPlayform.tag == "OneWayPlatform")
                 {
                     StartCoroutine(DisableCollision());
                 }
@@ -152,13 +128,12 @@ public class PlayerController : MonoBehaviour
                 {
                     audioManager.AudioPlay(2);
                     currentSkill.UseSkill();
-                    currentSkill=null;
-                    dcard.sprite = null;
-                    dcard.color = new Color(255, 255, 255, 0);
-                    dcardname.text = "您暂时没有卡牌~";
+                    currentSkill = null;
                 }
             }
-        }else{
+        }
+        else
+        {
             moveHorizontal = Input.GetAxisRaw("Horizontal2");
             moveVertical = Input.GetAxisRaw("Vertical2");
             if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -174,22 +149,32 @@ public class PlayerController : MonoBehaviour
                 {
                     audioManager.AudioPlay(2);
                     currentSkill.UseSkill();
-                    currentSkill=null;
-                    pcard.sprite = null;
-                    pcard.color = new Color(255, 255, 255, 0);
-                    pcardname.text = "您暂时没有卡牌~";
+                    currentSkill = null;
                 }
             }
         }
-        
+        if (rb2D.velocity.y == 0 && !physicsCheck.isGround)
+        {
+            moveHorizontal = 0f;
+        }
 
     }
     private void FixedUpdate()
     {
         if (!_isStunned && !_isTrapStun) {
-            rb2D.velocity = new Vector2(moveHorizontal * moveSpeed * Time.deltaTime, rb2D.velocity.y);
+            if (rightWall && moveHorizontal < 0f && onTheWall)
+            {
+                rb2D.velocity = new Vector2(moveHorizontal * moveSpeed * Time.deltaTime, rb2D.velocity.y);
+            }
+            if (leftWall && moveHorizontal > 0f && onTheWall)
+            {
+                rb2D.velocity = new Vector2(moveHorizontal * moveSpeed * Time.deltaTime, rb2D.velocity.y);
+            }
+            if (!onTheWall)
+            {
+                rb2D.velocity = new Vector2(moveHorizontal * moveSpeed * Time.deltaTime, rb2D.velocity.y);
+            }    
             isRunning = true;
-
             if (physicsCheck.isGround && rb2D.velocity.y < 0.1f&& moveVertical>0)
             {
                 audioManager.AudioPlay(1);
@@ -204,6 +189,17 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            if (role)
+            {
+                collision.gameObject.GetComponent<PlayerController>().SetRole(true);
+                role = false;
+            }
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "OneWayPlatform")
@@ -227,8 +223,20 @@ public class PlayerController : MonoBehaviour
                 }
                 //Debug.Log(collision.gameObject.tag);
             }
+            if (collision.gameObject.tag == "wall")
+            {
+                if (collision.gameObject.transform.position.x - transform.position.x < 0f && !physicsCheck.isGround)
+                {
+                    rightWall = true;
+                    onTheWall = true;
+                }
+                if (collision.gameObject.transform.position.x - transform.position.x > 0f && !physicsCheck.isGround)
+                {
+                    leftWall = true;
+                    onTheWall = true;
+                }
+            }
         }
-        
         
     }
    
@@ -240,6 +248,12 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             currentOneWayPlayform = null;
 
+        }
+        if (collision.gameObject.tag == "wall")
+        {
+            onTheWall = false;
+            rightWall = false;
+            leftWall= false;
         }
     }
     private void onFalling()
@@ -261,7 +275,7 @@ public class PlayerController : MonoBehaviour
         {
             CompositeCollider2D platformCollider = currentOneWayPlayform.GetComponent<CompositeCollider2D>();
             Physics2D.IgnoreCollision(playerCollider, platformCollider);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.18f);
             Physics2D.IgnoreCollision(playerCollider, platformCollider, false);
         }
         else
@@ -281,11 +295,6 @@ public class PlayerController : MonoBehaviour
         }
     }
     
-    public void Win(){
-        manager.whoWin(true);
-        manager.EndGame(true);
-        //Debug.Log(character);
-    }
 
     public PlayerController GetOpponent(){
         return opponent;
@@ -340,15 +349,23 @@ public class PlayerController : MonoBehaviour
     {
         currentSkill = skill;
     }
+    public bool GetCurrentSkill()
+    {
+        return currentSkill != null;
+    }
     public void SetCharacter(bool c){
         character=c;
+    }
+    public bool GetCharacter()
+    {
+        return character;
     }
     public void FlipCharacter(){
         character=!character;
     }
     public void SetRole(bool role){
         this.role=role;
-        arm.SetUsable(role);
+        //arm.SetUsable(role);
     }
     public bool GetRole(){
         return role;
@@ -373,66 +390,7 @@ public class PlayerController : MonoBehaviour
         return moveVertical;
     }
     
-    public void giveSkill(string cardName)
-    {
-        switch (cardName)
-        {
-            case "金钟罩d":
-                if (!GetRole())
-                {
-                    playerController.SetSkill(new Shield(playerController));
-                }
-                dcardname.text = "金钟罩";
-                break;
-            case "减速d":
-                playerController.SetSkill(new Impact(manager, playerController));
-                dcardname.text = "震荡波";
-                break;
-            case "闪现d":
-                playerController.SetSkill(new Flash(playerController));
-                dcardname.text = "闪现";
-                break;
-            case "障碍d":
-                playerController.SetSkill(new Barrier(playerController, barrierPrefab));
-                dcardname.text = "超级路障";
-                break;
-            case "伸手d":
-                if (GetRole())
-                {
-                    playerController.SetSkill(new Hand(manager, playerController));
-                }
-                dcardname.text = "麒麟臂";
-                break;
-            case "金钟罩p":
-                if (!GetRole())
-                {
-                    playerController.SetSkill(new Shield(playerController));
-                }
-                pcardname.text = "金钟罩";
-                break;
-            case "减速p":
-                playerController.SetSkill(new Impact(manager, playerController));
-                pcardname.text = "震荡波";
-                break;
-            case "闪现p":
-                playerController.SetSkill(new Flash(playerController));
-                pcardname.text = "闪现";
-                break;
-            case "障碍p":
-                playerController.SetSkill(new Barrier(playerController, barrierPrefab));
-                pcardname.text = "超级路障";
-                break;
-            case "伸手p":
-                if (GetRole())
-                {
-                    playerController.SetSkill(new Hand(manager, playerController));
-                }
-                pcardname.text = "麒麟臂";
-                break;
-            default:
-                break;
-        }
-    }
+
     public void playSmash()
     {
         smash.SetActive(true);
@@ -460,5 +418,13 @@ public class PlayerController : MonoBehaviour
     public void stopShield()
     {
         shield.SetActive(false);
+    }
+    public void setPlayerNumber(int number)
+    {
+        playerNumber = number;
+    }
+    public int getPlayerNumber()
+    {
+        return playerNumber;
     }
 }
